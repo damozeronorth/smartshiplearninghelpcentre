@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glossary</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Search Box */
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        /* Navigation */
+        .alphabet-nav, .module-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .alphabet-nav button, .module-filters button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #6c63ff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .alphabet-nav button:hover, .module-filters button:hover {
+            background-color: #5348c7;
+        }
+
+        /* Selected Button */
+        .selected {
+            background-color: #ff6347 !important; /* Highlighted color */
+        }
+
+        /* Glossary Items */
+        .glossary-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .glossary-item {
+            display: none;
+            background: #fff;
+            padding: 15px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .visible {
+            display: block;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Glossary</h1>
+
+ <!-- Module Filters -->
+    <div class="module-filters">
+        <button onclick="showAll(this)">All</button>
+        <button onclick="filterByModule(this, 'Purchase')">Purchase</button>
+        <button onclick="filterByModule(this, 'Crewing')">Crewing</button>
+        <button onclick="filterByModule(this, 'Certification')">Certification</button>
+        <button onclick="filterByModule(this, 'PMS')">PMS</button>
+        <button onclick="filterByModule(this, 'DMS')">DMS</button>
+    </div>
+
+    <!-- Alphabet Navigation -->
+    <div class="alphabet-nav">
+        <button onclick="filterByLetter(this, 'A')">A</button>
+        <button onclick="filterByLetter(this, 'B')">B</button>
+        <button onclick="filterByLetter(this, 'C')">C</button>
+        <button onclick="filterByLetter(this, 'D')">D</button>
+        <button onclick="filterByLetter(this, 'E')">E</button>
+        <button onclick="filterByLetter(this, 'F')">F</button>
+        <button onclick="filterByLetter(this, 'G')">G</button>
+        <button onclick="filterByLetter(this, 'H')">H</button>
+        <button onclick="filterByLetter(this, 'I')">I</button>
+        <button onclick="filterByLetter(this, 'J')">J</button>
+        <button onclick="filterByLetter(this, 'K')">K</button>
+        <button onclick="filterByLetter(this, 'L')">L</button>
+        <button onclick="filterByLetter(this, 'M')">M</button>
+        <button onclick="filterByLetter(this, 'N')">N</button>
+        <button onclick="filterByLetter(this, 'O')">O</button>
+        <button onclick="filterByLetter(this, 'P')">P</button>
+        <button onclick="filterByLetter(this, 'Q')">Q</button>
+        <button onclick="filterByLetter(this, 'R')">R</button>
+        <button onclick="filterByLetter(this, 'S')">S</button>
+        <button onclick="filterByLetter(this, 'T')">D</button>
+        <button onclick="filterByLetter(this, 'U')">U</button>
+        <button onclick="filterByLetter(this, 'V')">V</button>
+        <button onclick="filterByLetter(this, 'W')">W</button>
+        <button onclick="filterByLetter(this, 'X')">X</button>
+        <button onclick="filterByLetter(this, 'Y')">W</button>
+        <button onclick="filterByLetter(this, 'Z')">X</button>
+        <!-- Add more alphabet buttons as needed -->
+    </div>
+
+ <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search glossary terms..." onkeyup="filterBySearch()">
+    </div>
+
+    <!-- Glossary List -->
+    <div class="glossary-list">
+        <div class="glossary-item Purchase A">
+            <strong>Audit:</strong> A detailed review of a system or process.
+        </div>
+    <div class="glossary-item Crewing A">
+        <strong>Agreement:</strong> A formal arrangement between two parties, typically a buyer and a seller.
+    </div>
+        <div class="glossary-item Crewing C">
+            <strong>Contract:</strong> Legal agreement binding the crew and the company.
+        </div>
+        <div class="glossary-item Certification P">
+            <strong>Permit:</strong> Certification required for specific operations.
+        </div>
+    </div>
+
+    <script>
+        // Global variables to track selected filters
+        let selectedLetter = '';
+        let selectedModule = '';
+
+        // Toggle the selected state of a button and apply filters
+        function toggleButton(button, selectedValue, setValue) {
+            if (button.classList.contains('selected')) {
+                button.classList.remove('selected');
+                setValue('');
+            } else {
+                // Clear previously selected button in the same group
+                const siblings = button.parentElement.querySelectorAll('button');
+                siblings.forEach(sib => sib.classList.remove('selected'));
+                button.classList.add('selected');
+                setValue(selectedValue);
+            }
+            applyFilters();
+        }
+
+        // Show All Items
+        function showAll(button) {
+            toggleButton(button, '', (value) => {
+                selectedLetter = '';
+                selectedModule = '';
+            });
+            document.getElementById('searchInput').value = '';
+        }
+
+        // Filter by Alphabet
+        function filterByLetter(button, letter) {
+            toggleButton(button, letter, (value) => selectedLetter = value);
+        }
+
+        // Filter by Module
+        function filterByModule(button, module) {
+            toggleButton(button, module, (value) => selectedModule = value);
+        }
+
+        // Apply both filters simultaneously
+        function applyFilters() {
+            const items = document.querySelectorAll('.glossary-item');
+            items.forEach(item => {
+                const matchesModule = selectedModule === '' || item.classList.contains(selectedModule);
+                const matchesLetter = selectedLetter === '' || item.classList.contains(selectedLetter);
+                
+                if (matchesModule && matchesLetter) {
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                }
+            });
+        }
+
+        // Filter by Search
+        function filterBySearch() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.glossary-item');
+            items.forEach(item => {
+                const matchesSearch = item.textContent.toLowerCase().includes(searchInput);
+                const matchesModule = selectedModule === '' || item.classList.contains(selectedModule);
+                const matchesLetter = selectedLetter === '' || item.classList.contains(selectedLetter);
+
+                if (matchesSearch && matchesModule && matchesLetter) {
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

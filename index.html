@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Center the card */
+        .card-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .spinner-border {
+            display: none; /* Hidden by default */
+            width: 1.5rem;
+            height: 1.5rem;
+            border-width: 3px;
+        }
+        .password-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 70%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="card-wrapper">
+        <div class="card p-4" style="width: 100%; max-width: 400px;">
+            <h3 class="card-title text-center">Login</h3>
+            <div id="message" class="text-danger text-center"></div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="form-group password-wrapper">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    <div class="spinner-border text-primary mt-2" role="status" id="loadingSpinner">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+            passwordInput.setAttribute("type", type);
+        }
+
+        // Show loading spinner while fetching response
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Replace with your Google Apps Script URL
+            const scriptURL = "https://script.google.com/macros/s/AKfycbxGFHqIHtQI190YQFd60KRNjTrDr87cj9XDOOdBeBjqnQjswgSnoLLHxNiSWIkIDuoJ/exec";
+
+            // Show loading spinner and clear any previous message
+            document.getElementById("loadingSpinner").style.display = "inline-block";
+            document.getElementById("message").innerHTML = "";
+
+            fetch(scriptURL, {
+                method: "POST",
+                body: new URLSearchParams({ "username": username, "password": password })
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log("Result: ", result); // Log result for debugging
+
+                // Hide loading spinner
+                document.getElementById("loadingSpinner").style.display = "none";
+
+                if (result === "success") {
+                    window.location.href = "shippalmhelp.html"; // Redirect to dashboard.html on success
+                } else {
+                    document.getElementById("message").innerHTML = "Invalid credentials. Please try again.";
+                }
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                document.getElementById("loadingSpinner").style.display = "none"; // Hide spinner on error
+                document.getElementById("message").innerHTML = "An error occurred. Please try again later.";
+            });
+        });
+    </script>
+</body>
+</html>
