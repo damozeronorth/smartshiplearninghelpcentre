@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Playlist with Sidebar and Search</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f8f9fa;
+    }
+    .container {
+      display: flex;
+      flex: 1;
+      transition: all 0.3s ease;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #343a40;
+      color: #ffffff;
+      padding: 20px;
+      overflow-y: auto;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .search-bar {
+      margin-bottom: 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 8px;
+      font-size: 1em;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+    }
+    .lesson, .topic {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      font-size: 0.9em;
+      transition: background 0.3s;
+    }
+    .lesson:hover, .topic:hover {
+      background-color: #003143;
+    }
+    .icon {
+      margin-right: 10px;
+      transition: transform 0.3s;
+    }
+    .topic-list {
+      display: none;
+      padding-left: 20px;
+      font-size: 1em;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .content h3 {
+      font-size: 1.5em;
+      color: #343a40;
+      margin-bottom: 10px;
+    }
+    .video-player {
+      width: 100%;
+      max-width: 800px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Sidebar with Tree Structure and Search Bar -->
+  <div class="sidebar" id="sidebar" style="background-color: #50b18c; border-color: #50b18c;">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search lessons or topics...">
+    </div>
+
+    <!-- Lesson 1 -->
+    <div class="lesson" data-lesson="lesson1">
+      <i class="fas fa-plus icon"></i> Purchase Module
+    </div>
+    <div id="lesson1" class="topic-list">
+      <div class="topic" data-video="videos/purchase/video1_1.mp4" >1. Let's Get Started</div>
+      <div class="topic" data-video="videos/video1_2.mp4">2. Overview of Purchase Module</div>
+      <div class="topic" data-video="videos/video1_3.mp4">3. Overview of Purchase Request</div>
+      <div class="topic" data-video="videos/purchase/3.1 Business Scenarios to Create a Purchase Request Transaction.mp4">4. Business Scenarios to Create a Purchase Request Transaction</div>
+      <div class="topic" data-video="videos/purchase/3.1.1 Creating Manual Purchase Request Transaction.mp4">5. Creating Manual Purchase Request Transaction</div>
+      <div class="topic" data-video="videos/purchase/3.1.2 Creating Requisition worksheet-based purchase Request.mp4">6. Creating Requisition worksheet-based purchase Request</div>
+      <div class="topic" data-video="videos/purchase/3.1.3 Creating work order-based service request.mp4">7. Creating work order-based service request</div>
+      <div class="topic" data-video="videos/video1_3.mp4">8. Purchase Request for Quotation</div>
+      <div class="topic" data-video="videos/purchase/4.1 Creating Vendor Tags">9. Creating Vendor Tags</div>
+      <div class="topic" data-video="videos/purchase/4.2 Creating a Purchase Request to Request for Quotation (RFQ).mp4">10. Creating a Purchase Request to Request for Quotation (RFQ)</div>
+      <div class="topic" data-video="videos/video1_3.mp4">11. Creating Purchase Quotation in ERFQ Link/Kinnetik</div>
+      <div class="topic" data-video="videos/video1_1.mp4">12. Creating Manual Purchase Quotation</div>
+      <div class="topic" data-video="videos/video1_2.mp4">13. Quote to Comparison</div>
+      <div class="topic" data-video="videos/video1_3.mp4">14. Creating Quote to Comparison</div>
+      <div class="topic" data-video="videos/video1_3.mp4">15. Approving Quote to Comparison</div>
+      <div class="topic" data-video="videos/video1_3.mp4">16. Purchase Order</div>
+      <div class="topic" data-video="videos/video1_3.mp4">17. Creating Purchase order Transaction - Scenario 1</div>
+      <div class="topic" data-video="videos/video1_1.mp4">18. Creating Purchase order Transaction - Scenario 2</div>
+      <div class="topic" data-video="videos/video1_2.mp4">19. Creating Purchase order Transaction - Scenario 3</div>
+      <div class="topic" data-video="videos/video1_3.mp4">20. Creating Purchase order Transaction - Scenario 4</div>
+      <div class="topic" data-video="videos/video1_1.mp4">21. Creating Purchase order Transaction - Scenario 5</div>
+      <div class="topic" data-video="videos/video1_2.mp4">22. Searching/Retrieving a Purchase Order</div>
+      <div class="topic" data-video="videos/video1_3.mp4">23. Amending a Purchase Order</div>
+      <div class="topic" data-video="videos/video1_3.mp4">24. Acknowledging Purchase Order</div>
+      <div class="topic" data-video="videos/video1_3.mp4">25. Requesting a Purchase Order Approval</div>
+      <div class="topic" data-video="videos/video1_2.mp4">26. Sending Reminder for Purchase Order Approval</div>
+      <div class="topic" data-video="videos/video1_3.mp4">27. Force Closing a Purchase Order for a partially delivered purchase Request</div>
+      <div class="topic" data-video="videos/video1_3.mp4">28. Creating a Goods Receipt Transaction</div>
+      <div class="topic" data-video="videos/video1_3.mp4">29. Printing GRN labels</div>
+      <div class="topic" data-video="videos/video1_1.mp4">30. Inventory Management</div>
+      <div class="topic" data-video="videos/video1_2.mp4">31. Stock Adjustment Transaction</div>
+      <div class="topic" data-video="videos/video1_3.mp4">32. Transfer Order Cycle</div>
+      <div class="topic" data-video="videos/video1_1.mp4">33. Creating Manual FA2</div>
+      <div class="topic" data-video="videos/video1_2.mp4">34. Creating Transfer order</div>
+      <div class="topic" data-video="videos/video1_3.mp4">35. Creating Manual FA4</div>
+      <div class="topic" data-video="videos/video1_3.mp4">36. Creating Goods Receipt Transaction</div>
+      <div class="topic" data-video="videos/video1_3.mp4">37. Purchase Order Approval Process</div>
+      <div class="topic" data-video="videos/video1_1.mp4">38. Quote to Comparison Approval</div>
+    
+    </div>
+
+    <!-- Lesson 2 -->
+    <div class="lesson" data-lesson="lesson2">
+      <i class="fas fa-plus icon"></i> Voyage
+    </div>
+    <div id="lesson2" class="topic-list">
+      <div class="topic" data-video="Videos/voyage/1.0 Let's Get Started.mp4" >1. Let's Get Started</div>
+      <div class="topic" data-video="Videos/voyage/2.0 Overview of vessel and voyage app.mp4">2. Overview of Vessel and Voyage App</div>
+      <div class="topic" data-video="Videos/voyage/2.1 Setting up Initial ROB.mp4">3. Setting up Initial ROB</div>
+      <div class="topic" data-video="Videos/voyage/3.0 Voyage Initiation.mp4">4. Voyage Initiation</div>
+      <div class="topic" data-video="Videos/voyage/3.0 Voyage Initiation.mp4">5. Initiating a New Voyage</div>
+      <div class="topic" data-video="Videos/voyage/3.1 Initiating a New Voyage">6. Deleting a Voyage</div>
+      <div class="topic" data-video="videos/video1_3.mp4">7. Changing the Port in an Active Voyage</div>
+      <div class="topic" data-video="videos/video1_1.mp4">8. Position Book Report</div>
+      <div class="topic" data-video="videos/video1_2.mp4">9. Creating a New Position Book Report</div>
+      <div class="topic" data-video="videos/video1_3.mp4">10. Approving a Position Book Report</div>
+      <div class="topic" data-video="videos/video1_1.mp4">11. Deleting a Position Book Report</div>
+      <div class="topic" data-video="videos/video1_2.mp4">12. Canceling a Position Book Report</div>
+      <div class="topic" data-video="videos/video1_3.mp4">13. Amending a Position Book Report</div>
+      <div class="topic" data-video="videos/video1_1.mp4">14. Voyage Journal</div>
+      <div class="topic" data-video="videos/video1_2.mp4">15. Creating a Bunker Report</div>
+      <div class="topic" data-video="videos/video1_3.mp4">16. Creating a Bunker Survey Report</div>
+      <div class="topic" data-video="videos/video1_1.mp4">17. Creating a Correction Report</div>
+      <div class="topic" data-video="videos/video1_2.mp4">18. Creating a Tank Transfer Report</div>
+      <div class="topic" data-video="videos/video1_3.mp4">19. Approving a Voyage Journal</div>
+      <div class="topic" data-video="videos/video1_1.mp4">20. Deleting a Voyage Journal</div>
+      <div class="topic" data-video="videos/video1_2.mp4">21. Canceling a Voyage Journal</div>
+      <div class="topic" data-video="videos/video1_3.mp4">22. Amending a Voyage Journal</div>
+      <div class="topic" data-video="videos/video1_1.mp4">23. Guide to Port</div>
+      <div class="topic" data-video="videos/video1_2.mp4">24. Class Report</div>
+    </div>
+
+    <!-- Lesson 3 -->
+    <div class="lesson" data-lesson="lesson3">
+      <i class="fas fa-plus icon"></i> PMS
+    </div>
+    <div id="lesson3" class="topic-list">
+      <div class="topic" data-video="videos/video1_1.mp4">1. Let's Get Started</div>
+      <div class="topic" data-video="videos/video1_2.mp4">2. Overview of Purchase Module</div>
+      <div class="topic" data-video="videos/video1_3.mp4">3. Overview of Purchase Request</div>
+    </div>
+
+    <!-- Lesson 4 -->
+    <div class="lesson" data-lesson="lesson4">
+      <i class="fas fa-plus icon"></i> HSEQ
+    </div>
+    <div id="lesson4" class="topic-list">
+      <div class="topic" data-video="videos/video1_1.mp4">1. Let's Get Started</div>
+      <div class="topic" data-video="videos/video1_2.mp4">2. Overview of Purchase Module</div>
+      <div class="topic" data-video="videos/video1_3.mp4">3. Overview of Purchase Request</div>
+    </div>
+  </div>
+
+  <!-- Content Area with Video Display -->
+  <div class="content" id="content">
+    <div id="videoDisplay">
+      <h3>Select a Topic to Watch the Video</h3>
+    </div>
+    <video id="videoPlayer" class="video-player" controls>
+      <source src="Videos/CBT intro.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<!-- jQuery for Interactivity -->
+<script>
+  $(document).ready(function() {
+    // Filter lessons and topics based on search input
+    $('#searchInput').on('keyup', function() {
+      const searchTerm = $(this).val().toLowerCase();
+
+      $('.lesson').each(function() {
+        const lesson = $(this);
+        const lessonId = lesson.data('lesson');
+        const topicList = $('#' + lessonId);
+        let hasMatch = false;
+
+        // Check if the lesson title itself matches the search term
+        if (lesson.text().toLowerCase().includes(searchTerm)) {
+          lesson.show();
+          topicList.show();
+          topicList.find('.topic').show(); // Show all topics if lesson matches
+          hasMatch = true;
+        } else {
+          // Otherwise, check each topic within the lesson
+          topicList.find('.topic').each(function() {
+            const topic = $(this);
+            if (topic.text().toLowerCase().includes(searchTerm)) {
+              topic.show();
+              topicList.show(); // Show topic list if any topic matches
+              hasMatch = true;
+            } else {
+              topic.hide(); // Hide non-matching topics
+            }
+          });
+          // Show or hide the lesson based on whether any topics matched
+          lesson.toggle(hasMatch);
+        }
+
+        // Set the correct icon based on whether the topic list is visible
+        const icon = lesson.find('.icon');
+        icon.toggleClass('fa-plus', !hasMatch);
+        icon.toggleClass('fa-minus', hasMatch && topicList.is(':visible'));
+      });
+    });
+
+    // Toggle topic lists when clicking on a lesson
+    $('.lesson').on('click', function() {
+      const lessonId = $(this).data('lesson');
+      $(this).find('.icon').toggleClass('fa-plus fa-minus');
+      $('#' + lessonId).slideToggle();
+    });
+
+    // Show video when clicking on a topic
+    $('.topic').on('click', function() {
+      const videoUrl = $(this).data('video');
+      if (videoUrl) { // Only load video if data-video attribute is set
+        $('#videoDisplay').html(`<h3>Now Playing: ${$(this).text()}</h3>`);
+        $('#videoPlayer').attr('src', videoUrl);
+        $('#videoPlayer')[0].load(); // Reload video source to play from the beginning
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

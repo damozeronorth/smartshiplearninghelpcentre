@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShipPalm Interactive User Guides</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .course-card {
+            border: 1px solid #ccd6d9;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .course-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            max-height: 40px;
+            width: auto;
+        }
+
+        /* Button hover effect */
+        .btn-primary {
+            background-color: #50b18c;
+            border-color: #50b18c;
+        }
+        .btn-primary:hover {
+            background-color: #dcefe8;
+            border-color: #dcefe8;
+            color: #000; /* Optional: change text color on hover */
+        }
+
+        /* Media Query for Mobile Screens */
+        @media (max-width: 576px) {
+            .content-container {
+                text-align: center;
+                margin: 0;
+                padding-top: 15px;
+            }
+            .logo {
+                max-height: 30px;
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="d-flex flex-column flex-md-row align-items-center text-white py-4 px-3" style="background-color: #50b18c;">
+        <div class="logo-container">
+            <img src="asset/znlogo.png" alt="Logo" class="logo">
+        </div>
+        <div class="text-center flex-grow-1 content-container">
+            <h1 class="m-0">ShipPalm V3 Interactive User Guide for Ship Owner</h1>
+            <p>Choose from a range of ShipPalm V3 modules</p>
+        </div>
+    </header>
+
+    <!-- Course Cards Section -->
+    <section class="container my-5">
+        <div class="row justify-content-center">
+            <!-- Example Card -->
+            <div class="col-md-4">
+                <div class="course-card text-center">
+                    <h3>Purchase</h3>
+                    <p  style="font-size: 12px;">A one-stop solution for all your Ship Management purchase needs and automates the purchasing function of the entire fleet.
+ 			The system is capable to manage large purchase volumes with ease.
+ 			The procurement department get to see that everything is ordered with correct approvals.</p>
+                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Admin</button>
+                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Ship</button>
+                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Shore</button>
+                </div>
+            </div>
+             <!-- PMS -->
+            <div class="col-md-4">
+                <div class="course-card text-center">
+                    <h3>PMS</h3>
+                    <p style="font-size: 12px;">The PMS module designed to cost effectively manage vessel maintenance tasks. It offers a common Vessel and Office Software suite that enables users to plan, monitor, record and implement complex maintenance tasks.</p>
+                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Admin</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Ship</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Shore</button>
+                </div>
+            </div>
+
+ <!-- HSEQ Card -->
+            <div class="col-md-4">
+                <div class="course-card text-center">
+                    <h3>HSEQ</h3>
+                    <p style="font-size: 12px;">With the ShipPalm Quality Management module, you can keep track of deviations in the vessel, ensure proper follow up, initiate tasks to monitor and close the defects and assign corrective actions to rectify the defect.</p>
+                     <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Admin</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Ship</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Shore</button>
+                </div>
+            </div>
+
+            <!-- Voyage Card -->
+            <div class="col-md-4">
+                <div class="course-card text-center">
+                    <h3>Voyage</h3>
+                    <p style="font-size: 12px;">It is a comprehensive ship management software to monitor the current position of vessels, 
+			view voyage specific information, port related data, bunkering and consumption details. The module helps to initiate and monitor vessel and voyage specific daily reports. </p>
+                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Admin</button>
+			<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Ship</button>
+			 <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Shore</button>
+                </div>
+            </div>
+          
+           
+            <!-- Certificate Card -->
+            <div class="col-md-4">
+                <div class="course-card text-center">
+                    <h3>Certificate</h3>
+                    <p style="font-size: 12px;">The ShipPalm Certificate Management module maintains ship specific statutory documents and certificates issued across the fleet. 
+
+It initiates tasks on nearing certificate expiry to ensure that certificates are up to date.</p>
+                   <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Admin</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Ship</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Shore</button>
+                </div>
+            </div>
+  <!-- Dry Dock Card -->
+            <div class="col-md-4">
+                <div class="course-card text-center">
+                    <h3>Dry Dock</h3>
+                    <p style="font-size: 12px;">The ShipPalm Certificate Management module maintains ship specific statutory documents and certificates issued across the fleet. 
+
+It initiates tasks on nearing certificate expiry to ensure that certificates are up to date.</p>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Shore</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 ZeroNorth. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
