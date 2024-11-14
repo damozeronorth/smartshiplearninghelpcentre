@@ -31,15 +31,50 @@
     transform: translateY(-50%);
     cursor: pointer;
 }
- .btn-primary {
-            background-color: #50b18c;
-            border-color: #50b18c;
-        }
-        .btn-primary:hover {
-            background-color: #dcefe8;
-            border-color: #dcefe8;
-            color: #000; /* Optional: change text color on hover */
-        }
+.btn-primary {
+    background-color: #50b18c !important;
+    border-color: #50b18c !important;
+    color: #fff !important;
+    box-shadow: none !important; /* Removes default shadow */
+}
+
+/* Button hover effect */
+.btn-primary:hover {
+    background-color: #dcefe8 !important;
+    border-color: #dcefe8 !important;
+    color: #000 !important;
+}
+
+/* Override for all interactive states */
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:focus:active,
+.btn-primary:visited,
+.btn-primary:focus-visible {
+    background-color: #50b18c !important; /* Ensures the brand color stays */
+    border-color: #50b18c !important;
+    color: #fff !important;
+    outline: none !important; /* Removes the default outline */
+    box-shadow: none !important; /* Removes any focus or click shadow */
+    transition: none !important; /* Prevents any transition animation */
+}
+
+/* Button active state (clicked) */
+.btn-primary:active {
+    background-color: #50b18c !important; /* Ensures brand color stays */
+    border-color: #50b18c !important;
+    color: #fff !important;
+    box-shadow: none !important; /* No shadow on active state */
+    outline: none !important; /* Remove the outline */
+}
+.form-control {
+    border-color: #50b18c; /* Brand color as default border */
+}
+
+.form-control:focus {
+    border-color: #50b18c; /* Brand color on focus */
+    box-shadow: 0 0 0 0.2rem rgba(80, 177, 140, 0.25); /* Slight shadow for focus effect */
+}
 
     </style>
 </head>
