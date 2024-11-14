@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShipPalm Faqs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .accordion-container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-box input {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .filter-button {
+            padding: 10px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #50b18c;
+            color: #fff;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .filter-button.active {
+            background-color: #003143;
+        }
+        .accordion {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+        .accordion-header {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+        .tag {
+            background-color: #50b18c;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .accordion-content {
+            padding: 15px;
+            display: none;
+            border-top: 1px solid #ddd;
+        }
+        .active .accordion-content {
+            display: block;
+        }
+        .container {
+        display: flex;
+        justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container my-5">
+    <h1 class="text-center">Support FAQs</h1>
+</div>
+
+<div class="accordion-container">
+
+    <!-- Search Box -->
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search by Tag No. or Keyword" onkeyup="filterFAQs()">
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-buttons">
+        <button class="filter-button active" onclick="filterByModule('all')">All</button>
+        <button class="filter-button" onclick="filterByModule('General Questions')">General Questions</button>
+        <button class="filter-button" onclick="filterByModule('Ticket Categories')">Ticket Categories</button>
+        <button class="filter-button" onclick="filterByModule('Ticket Status and Tracking')">Ticket Status and Tracking</button>
+        <button class="filter-button" onclick="filterByModule('Response Times and Prioritization')">Response Times and Prioritization</button>
+	<button class="filter-button" onclick="filterByModule('Technical Issue Support')">Technical Issue Support</button>
+        <button class="filter-button" onclick="filterByModule('Account Support')">Account Support</button>
+	<button class="filter-button" onclick="filterByModule('Feature Requests')">Feature Requests</button>
+	<button class="filter-button" onclick="filterByModule('Closing and Reopening Tickets')">Closing and Reopening Tickets</button>	
+	<button class="filter-button" onclick="filterByModule('Additional Assistance')">Additional Assistance</button>
+    </div>
+
+    <!-- General Questions FAQs -->
+    <div class="accordion" data-module="General Questions">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-1.1</span> What is a support ticket, and when should I submit one? </h3>
+        </div>
+        <div class="accordion-content">
+            <p>A support ticket is a formal request for assistance. You should submit one if you need help with technical issues, account support, or if you have general questions or feedback.</p>
+        </div>
+    </div>
+    <div class="accordion" data-module="General Questions">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-1.2</span> How do I submit a support ticket? </h3>
+        </div>
+        <div class="accordion-content">
+            <p>Visit our support portal, click "Submit a Ticket," fill out the form with relevant details, and select the appropriate category.”</p>
+        </div>
+    </div>
+
+    <!-- Ticket Categories FAQs -->
+    <div class="accordion" data-module="Ticket Categories">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-2.1</span> What ticket categories should I choose from? </h3>
+        </div>
+        <div class="accordion-content">
+            <p>Categories include Technical Issue, Account Support, Feature Request, and General Inquiry. Select the one that best matches your request.</p>
+        </div>
+    </div>
+ <div class="accordion" data-module="Ticket Categories">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="tag">Tag No.: SUP-2.2</span> What if I’m unsure which category my issue falls under? </h3>
+</div>
+ <div class="accordion-content">
+            <p> If unsure, select “General Inquiry,” and our support team will direct it to the appropriate department.</p>
+        </div>
+    </div>
+
+<!-- Ticket Status and Tracking FAQs -->
+    <div class="accordion" data-module="Ticket Status and Tracking">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-3.1</span> How can I check the status of my submitted ticket? </h3>
+        </div>
+        <div class="accordion-content">
+            <p> You can log in to the support portal, go to “My Tickets,” and view the status updates on your ticket.</p>
+        </div>
+    </div>
+ <div class="accordion" data-module="Ticket Status and Tracking">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="tag">Tag No.: SUP-3.2</span>  What do the different ticket statuses mean? </h3>
+</div>
+<div class="accordion-content">
+            <p> New: Your ticket has been submitted and is awaiting review.<br/>
+In Progress: A support agent is actively working on your issue.<br/>
+Waiting for Customer: The support team needs more information from you to proceed.<br/>
+Resolved: Your issue has been addressed and the ticket is closed.
+</p>
+        </div>
+    </div>
+
+<!-- Response Times and Prioritization FAQs -->
+    <div class="accordion" data-module="Response Times and Prioritization">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-4.1</span> What are the typical response times for support tickets? </h3>
+        </div>
+        <div class="accordion-content">
+            <p> Response times vary based on ticket priority. Urgent issues are addressed within 1-2 hours, while lower-priority tickets may take up to 24 hours.</p>
+        </div>
+    </div>
+ <div class="accordion" data-module="Response Times and Prioritization">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="tag">Tag No.: SUP-4.2</span>  How are tickets prioritized? </h3>
+</div>
+<div class="accordion-content">
+            <p>Tickets are prioritized based on the severity of the issue. Critical system outages are prioritized as Urgent, while general inquiries are handled on a standard timeline.</p>
+        </div>
+    </div>
+
+<!-- Technical Issue Support FAQs -->
+    <div class="accordion" data-module="Technical Issue Support">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-5.1</span> What should I include in a technical issue ticket? </h3>
+        </div>
+        <div class="accordion-content">
+            <p> Include a clear description of the issue, any error messages, steps taken to troubleshoot, and screenshots if applicable.</p>
+        </div>
+    </div>
+ <div class="accordion" data-module="Technical Issue Support">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="tag">Tag No.: SUP-5.2</span>  What if my issue isn’t resolved with the initial solution provided? </h3>
+</div>
+<div class="accordion-content">
+            <p>Reply to your ticket and let the support team know. They’ll continue working with you to find a solution.</p>
+        </div>
+    </div>
+
+<!-- Account Support FAQs -->
+    <div class="accordion" data-module="Account Support">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-6.1</span> Can I update my account information through a support ticket? </h3>
+        </div>
+        <div class="accordion-content">
+            <p> Yes, you can request updates to your account information, such as email changes, password resets, or permission adjustments.</p>
+        </div>
+    </div>
+ <div class="accordion" data-module="Account Support">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="tag">Tag No.: SUP-6.2</span>   How do I reset my password? </h3>
+</div>
+<div class="accordion-content">
+            <p>Use the “Forgot Password” option on the login page. If you need further assistance, submit a ticket under “Account Support.”</p>
+        </div>
+    </div>
+
+<!-- Feature Requests FAQs -->
+    <div class="accordion" data-module="Feature Requests">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-7.1</span> Can I suggest a feature for future releases? </h3>
+        </div>
+        <div class="accordion-content">
+            <p> Yes! Submit a ticket under “Feature Request,” and include as many details as possible. Our team reviews suggestions regularly.</p>
+        </div>
+    </div>
+
+<!-- Closing and Reopening Tickets FAQs -->
+    <div class="accordion" data-module="Closing and Reopening Tickets">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-8.1</span> How do I close a ticket once my issue is resolved? </h3>
+        </div>
+        <div class="accordion-content">
+            <p> After your issue is resolved, the support team will close the ticket. If it remains open, you can log in to the support portal and close it manually.</p>
+        </div>
+    </div>
+ <div class="accordion" data-module="Closing and Reopening Tickets">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="tag">Tag No.: SUP-8.2</span>   Can I reopen a ticket if the issue isn’t fully resolved? </h3>
+</div>
+<div class="accordion-content">
+            <p>Yes, reply to the ticket, and it will be reopened for further assistance.</p>
+        </div>
+    </div>
+
+<!-- Additional Assistance FAQs -->
+    <div class="accordion" data-module="Additional Assistance">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <h3><span class="tag">Tag No.: SUP-9.1</span> Who should I contact if my ticket hasn’t received a response? </h3>
+        </div>
+        <div class="accordion-content">
+            <p>  If you haven't received a response within the expected timeframe, contact the Support Lead listed in the support team section.</p>
+        </div>
+    </div>
+ <div class="accordion" data-module="Additional Assistance">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <h3><span class="tag">Tag No.: SUP-9.2</span>  Are there any resources available for troubleshooting common issues? </h3>
+</div>
+<div class="accordion-content">
+            <p> Yes, please refer to our troubleshooting guide and FAQs section for self-help resources before submitting a ticket.</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    let selectedModule = 'all';
+
+    function toggleAccordion(element) {
+        element.parentElement.classList.toggle("active");
+    }
+
+    function filterFAQs() {
+        const searchInput = document.getElementById("searchInput").value.toLowerCase();
+        const accordions = document.querySelectorAll(".accordion");
+
+        accordions.forEach(accordion => {
+            const question = accordion.querySelector(".accordion-header h3").innerText.toLowerCase();
+            const tag = accordion.querySelector(".tag").innerText.toLowerCase();
+            const module = accordion.getAttribute("data-module");
+
+            // Check if the accordion matches the search term and selected module
+            const matchesSearch = question.includes(searchInput) || tag.includes(searchInput);
+            const matchesModule = selectedModule === 'all' || module === selectedModule;
+
+            if (matchesSearch && matchesModule) {
+                accordion.style.display = "";
+            } else {
+                accordion.style.display = "none";
+            }
+        });
+    }
+
+    function filterByModule(module) {
+        selectedModule = module; // Update the selected module
+        const filterButtons = document.querySelectorAll(".filter-button");
+
+        // Remove active class from all filter buttons
+        filterButtons.forEach(button => button.classList.remove("active"));
+
+        // Add active class to the clicked button
+        event.target.classList.add("active");
+
+        // Call filterFAQs to apply both search and module filters
+        filterFAQs();
+    }
+</script>
+
+
+</body>
+</html>
