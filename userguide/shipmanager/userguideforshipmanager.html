@@ -39,6 +39,14 @@
             border-color: #dcefe8;
             color: #000; /* Optional: change text color on hover */
         }
+	
+.btn-primary:focus {
+    background-color: #50b18c !important;
+    border-color: #50b18c !important;
+    color: #fff; /* Optional: set text color */
+    outline: none; /* Optional: remove default outline */
+    box-shadow: none; /* Optional: remove default focus shadow */
+}
 
         /* Media Query for Mobile Screens */
         @media (max-width: 576px) {
@@ -58,7 +66,7 @@
     <!-- Header Section -->
     <header class="d-flex flex-column flex-md-row align-items-center text-white py-4 px-3" style="background-color: #50b18c;">
         <div class="logo-container">
-            <img src="Wide Solid White.png" alt="Logo" class="logo">
+            <img src="../../asset/znlogo.png" alt="Logo" class="logo">
         </div>
         <div class="text-center flex-grow-1 content-container">
             <h1 class="m-0">ShipPalm V3 Interactive User Guide for Ship Manager</h1>
@@ -76,9 +84,9 @@
                     <p  style="font-size: 12px;">A one-stop solution for all your Ship Management purchase needs and automates the purchasing function of the entire fleet.
  			The system is capable to manage large purchase volumes with ease.
  			The procurement department get to see that everything is ordered with correct approvals.</p>
-                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Admin</button>
-                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Ship</button>
-                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank')">Shore</button>
+                    <button class="btn btn-primary" onclick="window.open('purchase/ship/index.html', '_blank'); this.blur();">Admin</button>
+                    <button class="btn btn-primary" onclick="window.open('purchase/ship/index.html', '_blank'); this.blur();">Ship</button>
+                    <button class="btn btn-primary" onclick="window.open('purchase/ship/index.html', '_blank'); this.blur();">Shore</button>
                 </div>
             </div>
              <!-- PMS -->
@@ -86,9 +94,9 @@
                 <div class="course-card text-center">
                     <h3>PMS</h3>
                     <p style="font-size: 12px;">The PMS module designed to cost effectively manage vessel maintenance tasks. It offers a common Vessel and Office Software suite that enables users to plan, monitor, record and implement complex maintenance tasks.</p>
-                    <button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Admin</button>
-		<button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Ship</button>
-		<button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Shore</button>
+                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Admin</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Ship</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Shore</button>
                 </div>
             </div>
 
@@ -97,9 +105,9 @@
                 <div class="course-card text-center">
                     <h3>HSEQ</h3>
                     <p style="font-size: 12px;">With the ShipPalm Quality Management module, you can keep track of deviations in the vessel, ensure proper follow up, initiate tasks to monitor and close the defects and assign corrective actions to rectify the defect.</p>
-                     <button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Admin</button>
-		<button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Ship</button>
-		<button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Shore</button>
+                     <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Admin</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Ship</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Shore</button>
                 </div>
             </div>
 
@@ -109,9 +117,9 @@
                     <h3>Voyage</h3>
                     <p style="font-size: 12px;">It is a comprehensive ship management software to monitor the current position of vessels, 
 			view voyage specific information, port related data, bunkering and consumption details. The module helps to initiate and monitor vessel and voyage specific daily reports. </p>
-                    <button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;" onclick="window.open('userguide/voyage/index.html', '_blank')">Admin</button>
-			 <button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;" onclick="window.open('userguide/voyage/index.html', '_blank')">Ship</button>
-			 <button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;" onclick="window.open('userguide/voyage/index.html', '_blank')">Shore</button>
+                    <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Admin</button>
+			<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Ship</button>
+			 <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Shore</button>
                 </div>
             </div>
           
@@ -123,9 +131,9 @@
                     <p style="font-size: 12px;">The ShipPalm Certificate Management module maintains ship specific statutory documents and certificates issued across the fleet. 
 
 It initiates tasks on nearing certificate expiry to ensure that certificates are up to date.</p>
-                    <button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Admin</button>
-		<button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Ship</button>
-		<button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Shore</button>
+                   <button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Admin</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Ship</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Shore</button>
                 </div>
             </div>
   <!-- Dry Dock Card -->
@@ -135,7 +143,7 @@ It initiates tasks on nearing certificate expiry to ensure that certificates are
                     <p style="font-size: 12px;">The ShipPalm Certificate Management module maintains ship specific statutory documents and certificates issued across the fleet. 
 
 It initiates tasks on nearing certificate expiry to ensure that certificates are up to date.</p>
-		<button class="btn btn-primary" style="background-color: #50b18c; border-color: #50b18c;">Shore</button>
+		<button class="btn btn-primary" onclick="window.open('userguide/purchase/index.html', '_blank'); this.blur();">Shore</button>
                 </div>
             </div>
         </div>
