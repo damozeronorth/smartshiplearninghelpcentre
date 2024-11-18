@@ -4,292 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Release Notes</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         /* Global Styles */
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
         }
 
-        /* Sidebar */
+        /* Sidebar Styles */
         .sidebar {
             height: 100vh;
-            position: fixed;
             width: 200px;
             background-color: #50b18c;
             color: white;
             padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin: 0;
+            padding: 10px 0;
+            font-size: 1.2em;
         }
 
         .sidebar a {
-            color: white;
+            display: block;
             padding: 15px;
             text-decoration: none;
-            display: block;
-            font-size: 1.0em;
-        }
-
-        .sidebar a:hover,a:active{
-            background-color: #dcefe8;
-	    color: #003143;
-
-        }	.sidebar a.selected {
-    background-color: #dcefe8;
-    color: #003143;
-}
-
-        /* Main content */
-        .content {
-            margin-left: 220px;
-            padding: 20px;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 60px 0;
-            border-bottom: 1px solid #ddd;
-        }
-
-        section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        /* Footer */
-        footer {
-            font-size: 0.9em;
-            background-color: #333;
             color: white;
-            padding: 15px 0;
-            text-align: center;
+            font-size: 1em;
         }
-/* Video Container Styling */
-.video-container {
-    position: relative;
-    width: 100%; /* Full width */
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-}
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+        .sidebar a:hover,
+        .sidebar a.selected {
+            background-color: #dcefe8;
+            color: #003143;
+        }
 
+        /* Main Content Styles */
+        .content {
+            margin-left: 220px; /* Same as sidebar width + 20px padding */
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        iframe {
+            width: 100%;
+            height: calc(100vh - 40px); /* Adjust height dynamically */
+            border: none;
+        }
     </style>
-</head>
-<body onload="scrollToTop()">
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <h4 class="text-center">Release Notes</h4>
-        <a href="#october">October</a>
-        <a href="#september">September</a>
-        <a href="#august">August</a>
-        <a href="#july">July</a>
-        <a href="#june">June</a>
-    </div>
-
-    <!-- Main Content -->
-    <div class="content">
-
-        <!-- October Section -->
-        <section id="october">
-            <h2>October Release</h2>
-            <p>Version: v1.4.3 - Release Date: October 28, 2023</p>
-<!--div class="container mt-5"-->
-    <!-- Heading -->
-    <h1 class="text-center">Release Note-version - 3.3.1.42-RELEASE SUMMARY</h1>
-
-<br/>
-     <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th >S.No</th>
-        <th >Date of Release Notes</th>
-        <th>Release Version No.</th>
-        <th class="text-center" colspan="2">Total No. of items in release-37</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>26jan2024</td>
-        <td>SHIPPALM  3.3.1.42</td>
-        <td>Feature-Total-19</td>
-        <td>Defect Fixes-Total-18</td>
-      </tr>
-    </tbody>
-  </table>
-
-<h1>2.Features</h1>
-<h2>2.1 Module-Purchase</h2>
-<h3>1.Cue cards addition in ShipPalm home page (TFS-160711)</h3>
-
-    <!-- Paragraph Text -->
-    <p class="mt-4">To provide Quick access to Purchase quotes submitted by vendors, a cue card has been introduced for Purchase quotes.
-This functionality is available for the users having Purchaser role at the shore side	
-On clicking the cue card, the system will list all purchase quotes submitted by the vendors (In approved Status)
-This will help organisations to make decision at the right time and reduce the need for internal/external follow-ups.
-</p>
-    <!-- Vimeo Embedded Video -->
-   
-   <!-- Replace the video container styling with custom styling -->
-<div class="video-container">
-    <iframe src="https://player.vimeo.com/video/951128852?" title="Vimeo video" allow="autoplay; fullscreen" allowfullscreen></iframe>
-</div>
-
-    <!-- Local Video File -->
-    <!-- h2 class="mt-5">Local Video File</h2-->
-    <!-- video class="w-1000" controls -->
-        <!-- source src="path/to/your_video.mp4" type="video/mp4" -->
-       <!-- Your browser does not support the video tag. -->
-    <!--/video -->
-    <!-- Image -->
-    
-<!-- Bullet Points -->
-    <h2 class="mt-5">Reproduction steps:</h2>
-    <ul class="list-unstyled">
-        <li>Log on to ShipPalm</li>
-        <li>Scroll down to Purchaser Activities </li>
-        <li>Look for Cue card “Purchase Quote” and click</li>
-        <li>Screen will display list Purchase quotes for various vendors</li>
-        <li>Search /filter option can be used to look for specific Purchase quote </li>
-    </ul>
-    <img src="release/release2.png" class="img-fluid" alt="Descriptive Alt Text">
-<img src="release/release.jpg" class="img-fluid" alt="Descriptive Alt Text">
-    <!-- GIF -->
-    <h2 class="mt-5">2.2. Item selection in Purchase Documents (TFS-191069)</h2>
-<p class="mt-4">To improve the usability, the system will list only those items that are mapped to the vessel  for which the purchase document is being created. This will significantly reduce the time taken to create or modify Purchase Requisition and Vessel Purchase order
-Currently the system lists out all the items at the Business unit level while creating a Purchase Requisition (PR) or Direct Purchase Orders. User needs to know the item that belongs to the vessel. This is time consuming one and at times may end up in wrong item selection
-</p>
-   <!-- Numbered List -->
-    <h2 class="mt-5">Reproduction steps:</h2>
-    <ol>
-        <li>Log on to ShipPalm with Purchaser credentials</li>
-        <li>On the Home page, Select Purchase Requisition and click on ALL</li>
-        <li>From the listing page, click New. Now a Purchase Requisition screens opens</li>
-<li>Click on three dots to select the required vessel from No. Series </li>
-<li>Fill up the required as well as mandatory fields </li>
-<li>Go to Line section and Click in three dots (…) Item selection</li>
-    </ol>
-    <img src="release/2.2.1 step01.gif" class="img-fluid" alt="Descriptive Alt Text for GIF">
-   
-  
-    <!-- Important Notes -->
-    <h2 class="mt-5">Important Notes</h2>
-    <div class="alert alert-warning" role="alert">
-        This is an important note section. Use this area to highlight critical information or warnings.
-    </div>
-<!--/div-->
-        </section>
-
-        <!-- September Section -->
-        <section id="september">
-            <h2>September Release</h2>
-            <p>Version: v1.4.2 - Release Date: September 24, 2023</p>
-            <ul>
-                <li>New Features: User Profile Customization.</li>
-                <li>UI Enhancements: Redesigned settings page for accessibility.</li>
-                <li>New Features: Smart Filtering, Dark Mode.</li>
-                <li>Bug Fixes: App crashes in bulk uploads resolved.</li>
-                <li>UI Enhancements: Redesigned settings page for accessibility.</li>
-                <li>New Features: Smart Filtering, Dark Mode.</li>
-                <li>Bug Fixes: App crashes in bulk uploads resolved.</li>
-
-                <li>Performance Improvements: Improved API response time.</li>
-            </ul>
-        </section>
-
-        <!-- August Section -->
-        <section id="august">
-            <h2>August Release</h2>
-            <p>Version: v1.4.1 - Release Date: August 29, 2023</p>
-            <ul>
-                <li>New Features: Advanced Analytics Dashboard, In-App Notifications.</li>
-                <li>Bug Fixes: Analytics data display corrected.</li>
-                <li>UI Enhancements: Redesigned settings page for accessibility.</li>
-                <li>New Features: Smart Filtering, Dark Mode.</li>
-                <li>Bug Fixes: App crashes in bulk uploads resolved.</li>
-                <li>UI Enhancements: Redesigned settings page for accessibility.</li>
-                <li>New Features: Smart Filtering, Dark Mode.</li>
-                <li>Bug Fixes: App crashes in bulk uploads resolved.</li>
-
-            </ul>
-        </section>
-
-        <!-- July Section -->
-        <section id="july">
-            <h2>July Release</h2>
-            <p>Version: v1.4.0 - Release Date: July 20, 2023</p>
-            <ul>
-                <li>UI Enhancements: Redesigned settings page for accessibility.</li>
-                <li>New Features: Smart Filtering, Dark Mode.</li>
-                <li>Bug Fixes: App crashes in bulk uploads resolved.</li>
-                <li>UI Enhancements: Redesigned settings page for accessibility.</li>
-                <li>New Features: Smart Filtering, Dark Mode.</li>
-                <li>Bug Fixes: App crashes in bulk uploads resolved.</li>
-
-                <li>Bug Fixes: Reporting module bugs resolved.</li>
-                <li>Performance Improvements: Optimized server-side rendering.</li>
-            </ul>
-        </section>
-
-        <!-- June Section -->
-        <section id="june">
-            <h2>June Release</h2>
-            <p>Version: v1.3.9 - Release Date: June 15, 2023</p>
-            <ul>
-                <li>New Features: Customizable Notifications, Data Export options.</li>
-                <li>Bug Fixes: Data sync issues fixed.</li>
-                <li>UI Enhancements: Redesigned settings page for accessibility.</li>
-                <li>New Features: Smart Filtering, Dark Mode.</li>
-                <li>Bug Fixes: App crashes in bulk uploads resolved.</li>
-                <li>UI Enhancements: Redesigned settings page for accessibility.</li>
-                <li>New Features: Smart Filtering, Dark Mode.</li>
-                <li>Bug Fixes: App crashes in bulk uploads resolved.</li>
-
-            </ul>
-        </section>
-
-     </div>
-
-    <!-- Smooth Scrolling Script -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
-        function scrollToTop() {
-            // Scroll to the top when the page loads
-            window.scrollTo(0, 0);
-        }
-
-        $(document).ready(function(){
-            $('a').on('click', function(event) {
-                if (this.hash !== "") {
-                    event.preventDefault();
-                    var hash = this.hash;
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top
-                    }, 800);
-                }
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add 'selected' class on click
+            const sidebarLinks = document.querySelectorAll('.sidebar a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    sidebarLinks.forEach(link => link.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
             });
         });
     </script>
-<script>
-    window.onbeforeunload = function () {
-        window.scrollTo(0, 0);
-    };
-</script>
-<script>
-document.querySelectorAll('.sidebar a').forEach(link => {
-    link.addEventListener('click', function() {
-        document.querySelectorAll('.sidebar a').forEach(item => item.classList.remove('selected'));
-        this.classList.add('selected');
-    });
-});
-</script>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Release Notes</h2>
+         <a href="oct2024/october.html" target="content-frame">October 2024</a>
+        <a href="sept2024/september.html" target="content-frame">September 2024</a>
+        <a href="aug2024/august.html" target="content-frame">August 2024</a>
+        <a href="july2024/july.html" target="content-frame">July 2024</a>
+    </aside>
+    <main class="content">
+        <iframe name="content-frame" src="oct2024/october.html"></iframe>
+    </main>
 </body>
 </html>
