@@ -16,7 +16,7 @@
             height: 100vh;
             position: fixed;
             width: 200px;
-            background-color: #333;
+            background-color: #50b18c;
             color: white;
             padding-top: 20px;
         }
@@ -29,9 +29,14 @@
             font-size: 1.0em;
         }
 
-        .sidebar a:hover {
-            background-color: #007bff;
-        }
+        .sidebar a:hover,a:active{
+            background-color: #dcefe8;
+	    color: #003143;
+
+        }	.sidebar a.selected {
+    background-color: #dcefe8;
+    color: #003143;
+}
 
         /* Main content */
         .content {
@@ -277,6 +282,14 @@ Currently the system lists out all the items at the Business unit level while cr
     window.onbeforeunload = function () {
         window.scrollTo(0, 0);
     };
+</script>
+<script>
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', function() {
+        document.querySelectorAll('.sidebar a').forEach(item => item.classList.remove('selected'));
+        this.classList.add('selected');
+    });
+});
 </script>
 </body>
 </html>
