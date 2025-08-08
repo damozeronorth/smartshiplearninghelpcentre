@@ -277,9 +277,10 @@
     height: 80%;
     border-radius: 10px;
     padding: 20px;
-    position: relative;
-    overflow: hidden; /* <-- REMOVE THIS LINE */
-   
+    position: relative;  
+    /* overflow: hidden; */ /* <-- REMOVE THIS LINE */
+    overflow-y: auto; /* Or set this to auto to be explicit */
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on mobile devices */
 }
 
 #articleFrame {
@@ -1037,6 +1038,7 @@ function closeOverlay() {
 </body>
 
 </html>
+
 
 
 
