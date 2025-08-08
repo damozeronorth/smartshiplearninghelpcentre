@@ -8,10 +8,6 @@
   <script src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
 
 <style>
-
-html {
-    overflow-y: scroll; /* always reserve scrollbar space */
-}
    body {
   padding-top: 20px; /* Match the height of the fixed header */
 }
@@ -260,29 +256,39 @@ html {
         text-decoration: none;
     }
 
-    /* Fullscreen Overlay for Chatbot Articles */
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        overflow-y: auto;
-    }
-    .overlay-content {
-        background: white;
-        width: 80%;
-        height: 80%;
-        border-radius: 10px;
-        padding: 20px;
-        position: relative;
-        overflow: hidden; /* This will show scrollbar if iframe content is taller */
-    }
+/* Fullscreen Overlay for Chatbot Articles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* overflow-y: auto;  You can remove this from the main overlay */
+}
+
+.overlay-content {
+    background: white;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    /* REMOVE overflow: hidden; and ADD the following: */
+    overflow-y: auto; /* Allow vertical scrolling within this container */
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on mobile devices */
+}
+
+#articleFrame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* The 'scrolling="yes"' attribute is obsolete, CSS is the preferred way. */
+}
     .close-btn {
         position: absolute;
         top: 30px;
@@ -1032,3 +1038,4 @@ function closeOverlay() {
 </body>
 
 </html>
+
