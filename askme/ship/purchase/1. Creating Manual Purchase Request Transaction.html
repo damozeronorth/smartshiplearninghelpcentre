@@ -39,26 +39,23 @@
             cursor: zoom-in; /* Added for zoom functionality */
             transition: transform 0.3s ease; /* Added for smooth effect */
         }
-        /* Lightbox-style overlay for image zoom */
-        .lightbox {
-          display: none;
-          position: fixed;
-          z-index: 1000;
-          top: 0;
-          left: 0;
-          overflow-y: auto;
-          background-color: rgba(0, 0, 0, 0.9);
-          justify-content: center;
-          align-items: center;
-          
-        }
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Let clicks go through if not on image */
+}
 
-        .lightbox img {
-          max-width: 90%;
-          max-height: 90%;
-          cursor: zoom-out;
-          border-radius: 10px;
-        }
+.lightbox img {
+  pointer-events: auto; /* Clickable image */
+}
     </style>
 </head>
 <body>
@@ -143,16 +140,18 @@
     </div>
 
     <script>
-      function zoomImage(img) {
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        lightboxImg.src = img.src;
-        lightbox.style.display = 'flex';
-      }
+function zoomImage(img) {
+    const lightbox = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = img.src;
+    lightbox.style.display = 'flex';
+    lightbox.style.pointerEvents = 'auto';
+}
 
-      function closeLightbox() {
-        document.getElementById('lightbox').style.display = 'none';
-      }
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none';
+    lightbox.style.pointerEvents = 'none';
+}
     </script>
 </body>
 </html>
