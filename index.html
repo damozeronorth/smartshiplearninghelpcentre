@@ -129,6 +129,8 @@
       border-radius: 16px;
       transition: all 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      /* Ensure card has a minimum height so it doesn't collapse */
+      min-height: 130px; 
     }
     .card:hover {
       transform: translateY(-5px);
@@ -144,6 +146,50 @@
       font-weight: 600;
       color: #333;
     }
+
+    /* --- CSS FOR HOVER EFFECT --- */
+    .card-with-hover-text {
+      position: relative; /* Needed to position hover content */
+      overflow: hidden; /* Clips the content */
+    }
+    .card-normal-content {
+      /* This is the default state (icon + title) */
+      transition: opacity 0.3s ease-in-out;
+    }
+    .card-hover-content {
+      /* This is the hidden state (text) */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex; /* Used to center the text */
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px; /* Same as p-4 roughly */
+      opacity: 0; /* Hidden by default */
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      font-size: 14px;
+      color: #333;
+      background-color: #fff; /* Match card background to cover content */
+    }
+    .card-hover-content p {
+      margin: 0; /* Remove default paragraph margin */
+    }
+    .card-with-hover-text:hover .card-normal-content {
+      /* On hover, hide the normal content */
+      opacity: 0;
+      visibility: hidden;
+    }
+    .card-with-hover-text:hover .card-hover-content {
+      /* On hover, show the hover content */
+      opacity: 1;
+      visibility: visible;
+    }
+    /* --- END OF CSS --- */
+
     @media (max-width: 768px) {
       .sidebar {
         position: relative;
@@ -169,11 +215,19 @@
       .zenora-intro img {
         margin-bottom: 10px;
       }
+      /* On mobile, disable the hover effect and just show the icon */
+      .card-with-hover-text:hover .card-normal-content {
+        opacity: 1;
+        visibility: visible;
+      }
+      .card-with-hover-text:hover .card-hover-content {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Collapsed Sidebar -->
   <div class="sidebar">
     <nav class="nav flex-column">
       <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Home"><i class="bi bi-house"></i></a>
@@ -191,18 +245,14 @@
       <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Feedback"><i class="bi bi-star"></i></a>      
     </nav>
   </div>
-  <!-- Main Content -->
   <div class="main-content">
-    <!-- ZENORA Header -->
     <div class="zenora-header">
       <h1>Welcome to the ZN SMARTShip Learning Help Centre</h1>
       <p class="subtitle">Your central knowledge hub for SMARTShip</p>
-      <!-- Search Bar -->
       <div class="search-bar">
         <input type="text" placeholder="Ask me anything..." />
         <button><i class="bi bi-robot"></i></button>
       </div>
-      <!-- ZENORA AI Intro -->
       <div class="zenora-intro">
         <img src="https://cdn-icons-png.flaticon.com/512/4712/4712189.png" alt="ZENORA Robot" />
         <div class="zenora-intro-text">
@@ -213,87 +263,156 @@
     </div>
     <h2 class="fw-bold mb-4 text-primary">Explore Learning Resources</h2>
     <div class="row g-4">
-      <!-- Feature Cards -->
+      
       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-rocket-takeoff"></i>
-          <h5 class="card-title">Get Started</h5>
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-rocket-takeoff"></i>
+            <h5 class="card-title">Get Started</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Take a quick tour video to get familiar with the products right away.</p>
+          </div>
         </div>
       </div>
+
       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-grid"></i>
-          <h5 class="card-title">Apps</h5>
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-grid"></i>
+            <h5 class="card-title">Apps</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Discover all available apps and what each one can do for you.</p>
+          </div>
         </div>
       </div>
+
        <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-         <i class="bi bi-file-earmark-lock"></i>
-          <h5 class="card-title">Case Studies</h5>
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+           <i class="bi bi-file-earmark-lock"></i>
+            <h5 class="card-title">Case Studies</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>See real-world examples of how others solve problems using the product.</p>
+          </div>
         </div>
       </div>
-         <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-box-seam"></i>
-          <h5 class="card-title">Find Your Subscription</h5>
-        </div>
-      </div>
+
       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-book"></i>
-          <h5 class="card-title">User Guides</h5>
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-box-seam"></i>
+            <h5 class="card-title">Find Your Subscription</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Understand your plan details and unlock the value of your package.</p>
+          </div>
         </div>
       </div>
-       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-lightbulb"></i>
-          <h5 class="card-title">How-To Videos</h5>
-        </div>
-      </div>
-       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-question-circle"></i>
-          <h5 class="card-title">FAQs</h5>
-        </div>
-      </div>
+
       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-megaphone"></i>
-          <h5 class="card-title">What's New</h5>
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-book"></i>
+            <h5 class="card-title">User Guides</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Follow clear, practical instructions to complete tasks easily.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-lightbulb"></i>
+            <h5 class="card-title">How-To Videos</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Learn faster through short, engaging video tutorials.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-question-circle"></i>
+            <h5 class="card-title">FAQs</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Find answers to common questions and important best practices.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-megaphone"></i>
+            <h5 class="card-title">What's New</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Keep track of new features, improvements, and announcements.</p>
+          </div>
         </div>
       </div>
      
       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-collection-play"></i>
-          <h5 class="card-title">Training Library</h5>
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-collection-play"></i>
+            <h5 class="card-title">Training Library</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Upskill anytime with structured courses designed for your role.</p>
+          </div>
         </div>
       </div>
-   
+    
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-camera-video"></i>
+            <h5 class="card-title">Recorded Webinars</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Revisit expert sessions and training at your own pace.</p>
+          </div>
+        </div>
+      </div>
      
       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-camera-video"></i>
-          <h5 class="card-title">Recorded Webinars</h5>
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-headset"></i>
+            <h5 class="card-title">Support</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Reach our support team whenever you need assistance.</p>
+          </div>
         </div>
       </div>
-     
+
       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-headset"></i>
-          <h5 class="card-title">Support</h5>
+        <div class="card p-4 text-center card-with-hover-text">
+          <div class="card-normal-content">
+            <i class="bi bi-star"></i>
+            <h5 class="card-title">Feedback</h5>
+          </div>
+          <div class="card-hover-content">
+            <p>Share your thoughts to improve your learning experience.</p>
+          </div>
         </div>
       </div>
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-star"></i>
-          <h5 class="card-title">Feedback</h5>
-        </div>
-      </div>
+
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // This script now only initializes the tooltips for the sidebar
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el))
   </script>
