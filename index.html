@@ -1,1046 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ShipPalm Tour</title>
-  <link rel="stylesheet" href="bootstrap-5.3.5-dist/css/bootstrap.min.css">
-  <script src="bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
-
-<style>
-   body {
-  padding-top: 20px; /* Match the height of the fixed header */
-}
-  /* Custom styles */
-    .section {
-      padding: 80px 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZN ShipPalm Learning Help Centre</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background-color: #F8F9FB;
+      font-family: "Inter", sans-serif;
     }
-    .navbar-brand, .nav-link {
-      color: #fff !important;
-    }
-    .bg-dark-blue {
-      background-color: #004080;
-    }
-    /* Navbar Styling */
-    .navbar {
-        margin: 0;
-        padding: 0;
-        background-color: #50b18c !important; /* Matches the inline background color */
-    }
-    /* Active Navbar Item */
-.nav-item.active .nav-link {
-    color: #003143 !important;
-    background-color: #dcefe8; /* Highlight the active item */
-    
-}
-        /* Navbar Brand */
-    .navbar-brand {
-        color: #fff !important;
-        z-index: 9999;
-        font-weight: bold; /* Makes the text bold */
-        font-size: 1.1rem;  /* Adjust this value - e.g., 1rem, 1.15rem, 18px */
-    }
-
-    /* Navbar Links */
-    .nav-link {
-        color: #fff !important;
-        margin-right: 15px;
-        padding-right: 15px;
-        transition: color 0.3s ease; /* Smooth color change on hover */
-        cursor: pointer; /* Add pointer cursor to indicate clickability */
-        white-space: nowrap; /* Add this line to prevent text wrapping */
-    }
-
-    /* Remove border from last nav-item */
-    .nav-item:last-child .nav-link {
-        border-right: none;
-    }
-
-    /* Navbar Link Hover Effect */
-    .nav-link:hover {
-        color: #ccc !important;
-    }
-
-    /* Ensure Consistent Size and Apply Transitions Here */
-    .nav-item .nav-link {
-        padding: 10px 18px; /* Keep padding uniform */
-        /* Apply background transition to the link itself */
-        transition: background-color 0.3s ease, color 0.3s ease;
-        display: flex; /* Ensure alignment */
-        align-items: center;
-        box-sizing: border-box; /* Prevent layout shift */
-    }
-
-    /* Active Navbar Item Styling (applied to the link) */
-    .nav-item.active .nav-link {
-        color: #003143 !important;
-        background-color: #dcefe8; /* Highlight the active item */
-    }
-
-
-    /* Remove any margin below nav items */
-    .nav-item {
-        margin: 0;
-    }
-       .navbar-nav .nav-link {
-        font-size: 0.9rem; /* Adjust this value if needed (e.g., 0.9rem, 14px) */
-    }
-
-    /* Nav container for centering */
-    .navbar-collapse {
-        justify-content: center !important; /* Ensures the nav items are centered */
-    }
-
-    /* Fix for negative margin issue on smaller screens */
-     @media (max-width: 1200px) { /* Adjust breakpoint if needed */
-        .navbar-collapse {
-            margin-left: 0 !important;
-        }
-     }
-
-
-    /* Help icon alignment */
-    .nav-item.d-flex {
-        display: flex;
-        align-items: center;
-    }
-
-    .card {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border: none;
-      margin-bottom: 20px;
-    }
-
-    .card-img-top {
-      border-radius: 50%;
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      margin: 20px auto 10px; /* Centers image */
-    }
-
-    .card-body {
-      padding: 20px;
-    }
-
-    .card-title {
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
-
-    .card-text {
-      margin-bottom: 10px;
-    }
-
-    .btn-primary {
-      background-color: #50b18c !important;
-      border-color: #50b18c !important;
-      color: #fff !important;
-      box-shadow: none !important; /* Removes default shadow */
-    }
-
-    /* Button hover effect */
-    .btn-primary:hover {
-      background-color: #dcefe8 !important;
-      border-color: #dcefe8 !important;
-      color: #000 !important;
-    }
-
-    /* Override for all interactive states */
-    .btn-primary:focus,
-    .btn-primary:active,
-    .btn-primary:focus:active,
-    .btn-primary:visited,
-    .btn-primary:focus-visible {
-      background-color: #50b18c !important; /* Ensures the brand color stays */
-      border-color: #50b18c !important;
-      color: #fff !important;
-      outline: none !important; /* Removes the default outline */
-      box-shadow: none !important; /* Removes any focus or click shadow */
-      transition: none !important; /* Prevents any transition animation */
-    }
-
-    /* Button active state (clicked) */
-    .btn-primary:active {
-      background-color: #50b18c !important; /* Ensures brand color stays */
-      border-color: #50b18c !important;
-      color: #fff !important;
-      box-shadow: none !important; /* No shadow on active state */
-      outline: none !important; /* Remove the outline */
-    }
-
-    .form-control {
-      border-color: #50b18c; /* Brand color as default border */
-    }
-
-    .form-control:focus {
-      border-color: #50b18c; /* Brand color on focus */
-      box-shadow: 0 0 0 0.2rem rgba(80, 177, 140, 0.25); /* Slight shadow for focus effect */
-    }
-
-    .equal-height-card {
+    /* Collapsed Sidebar */
+    .sidebar {
+      width: 70px;
+      background-color: #fff;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      padding: 20px 10px;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      align-items: center;
     }
-
-    .equal-height-card .card-body {
-      flex-grow: 1;
+    .sidebar .nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #444;
+      font-weight: 500;
+      border-radius: 10px;
+      padding: 12px 0;
+      width: 100%;
+      transition: all 0.3s ease;
+      font-size: 12px;
     }
-    @media (min-width: 992px) {
-      .modal-lg {
-        max-width: 900px; /* Adjust this value as needed */
+    .sidebar .nav-link i {
+      font-size: 24px;
+      color: #0D6EFD;
+      margin-bottom: 4px;
+    }
+    .sidebar .nav-link:hover {
+      background-color: #E7F1FF;
+      color: #0D6EFD;
+    }
+    /* Tooltip for sidebar names */
+    .sidebar .nav-link[data-bs-toggle="tooltip"] {
+      cursor: pointer;
+    }
+    /* Main content */
+    .main-content {
+      margin-left: 90px;
+      padding: 40px;
+    }
+    /* ZENORA Header */
+    .zenora-header {
+      background-color: #fff;
+      border-radius: 16px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+    }
+    .zenora-header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: #0D47A1;
+      margin-bottom: 8px;
+    }
+    .zenora-header p.subtitle {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .search-bar input {
+      flex: 1;
+      border-radius: 50px;
+      border: 1px solid #CED4DA;
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+    .search-bar button {
+      border-radius: 50%;
+      border: none;
+      background-color: #0D6EFD;
+      color: #fff;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .zenora-intro {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+    .zenora-intro img {
+      width: 60px;
+      height: 60px;
+    }
+    .zenora-intro-text h5 {
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #0D47A1;
+    }
+    .zenora-intro-text p {
+      margin: 0;
+      color: #555;
+      font-size: 14px;
+    }
+    .card {
+      border: none;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+    .card i {
+      font-size: 32px;
+      color: #0D6EFD;
+      margin-bottom: 10px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
+      .sidebar .nav-link {
+        flex-direction: column;
+        font-size: 10px;
+        padding: 5px 0;
+      }
+      .zenora-intro {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .zenora-intro img {
+        margin-bottom: 10px;
       }
     }
-
-   
-    /* Popup Styling */
-    #popup {
-        display: none; /* Initially hidden */
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        padding: 20px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        width: 90%;
-        max-width: 600px;
-    }
-    #popup-overlay {
-        display: none; /* Initially hidden */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-    }
-    /* Optional: Responsive adjustments */
-    @media (max-width: 1024px) {
-        .card-title {
-            font-size: 1rem;
-        }
-        .section {
-            padding: 40px 0;
-        }
-    }
-
-        /* Chatbot Button */
-    .chatbot-btn { position: fixed; bottom: 20px; right: 20px; background-color: #50b18c; color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; z-index: 1050;}
-    .chatbot-container { position: fixed; bottom: 90px; right: 20px; width: 420px; background: white; border-radius: 12px; display: none; flex-direction: column; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); z-index: 1050;}
-    .chatbot-header { background: #50b18c; color: white; padding: 12px; text-align: center; font-size: 18px; font-weight: bold; border-top-left-radius: 12px; border-top-right-radius: 12px;}
-    .chatbot-body { padding: 12px; max-height: 400px; overflow-y: auto;}
-    #searchInput.form-control { /* Specific to chatbot search */
-        font-size: 14px;
-    }
-
-    /* Search Results for Chatbot */
-    .result {
-        display: block;
-        text-decoration: none;
-        background: #ffffff;
-        border: 1px solid #03819B;
-        padding: 8px;
-        margin-top: 5px;
-        border-radius: 5px;
-        transition: all 0.3s ease-in-out;
-        font-size: 14px;
-        cursor: pointer;
-    }
-    .result:hover {
-        background: #50b18c;
-        color: #fff;
-        text-decoration: none;
-    }
-
-/* Fullscreen Overlay for Chatbot Articles */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    /* overflow-y: auto;  You can remove this from the main overlay */
-}
-
-.overlay-content {
-    background: white;
-    width: 80%;
-    height: 80%;
-    border-radius: 10px;
-    padding: 20px;
-    position: relative;
-     /* overflow: hidden; */ /* <-- REMOVE THIS LINE */
-    overflow-y: auto; /* Or set this to auto to be explicit */
-    -webkit-overflow-scrolling: touch; /* For smooth scrolling on mobile devices */
-}
-
-#articleFrame {
-    width: 100%;
-    height: 100%;
-    border: none;
-    /* The 'scrolling="yes"' attribute is obsolete, CSS is the preferred way. */
-}
-    .close-btn {
-        position: absolute;
-        top: 30px;
-        right: 55px;
-        z-index: 10;
-        background-color: #50b18c !important;
-        color: white !important;
-        border: 1px solid #409170 !important;
-        border-radius: 0 !important;
-        width: 32px !important;
-        height: 32px !important;
-        padding: 0 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        font-size: 20px !important;
-        font-weight: bold !important;
-        line-height: 1 !important;
-        cursor: pointer !important;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-        font-size: 30px !important;
-        font-weight: normal !important;
-    }
-    .close-btn:hover {
-        background-color: #409170 !important;
-        border-color: #3a7d64 !important;
-        color: white !important;
-    }
-   /* Styles for Apps Section Cards */
-    .app-card { 
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added for hover animation */
-    }
-     .app-card:hover { /* Added hover effect for app-specific cards */
-        transform: translateY(-5px) scale(1.03); /* Slightly different scale for variety */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    .app-card .card-img-top { /* This targets the image specifically within .app-card */
-        width: 100%;
-        height: 150px; 
-        object-fit: contain;
-        padding: 15px; 
-        background-color: #e9f5f2;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        margin: 0 auto;
-        border-bottom: 1px solid #e0e0e0;
-    }
-    .app-card .card-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex-grow: 1;
-        padding: 1.25rem; 
-    }
-    .app-card .card-title {
-        font-size: 1.15rem; 
-        font-weight: 600; 
-        color: #156e80; 
-        margin-bottom: 0.75rem;
-    }
-    .app-card .card-text {
-        font-size: 0.9rem;
-        color: #555;
-        flex-grow: 1;
-        margin-bottom: 1rem;
-        line-height: 1.5;
-    }
-    .btn-watch-custom {
-        background-color: #50b18c !important; 
-        border-color: #50b18c !important;
-        color: #fff !important;
-        width: 100%;
-        padding: 0.6rem 0.75rem; 
-        font-weight: 500;
-        border-radius: 6px; 
-    }
-    .btn-watch-custom:hover {
-        background-color: #409170 !important; 
-        border-color: #409170 !important;
-    }
-    /* Video Modal Styling */
-    #videoModal .modal-content {
-        border-radius: 10px; 
-    }
-    #videoModal .modal-header {
-        background-color: #50b18c; 
-        color: white;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-    }
-    #videoModal .modal-header .btn-close {
-        filter: invert(1) grayscale(20%) brightness(200%); 
-    }
-    #videoModal .modal-title {
-        font-weight: 500;
-    }
-    #videoModal .modal-body {
-        padding: 0; 
-        background-color: #000; 
-    }
-    #videoModal .modal-body .ratio {
-         max-height: 80vh;
-    }
-    #videoModal iframe {
-        border: none; 
-    }
-</style>
-
-
-
+  </style>
 </head>
 <body>
-
-
-  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #50b18c;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">ShipPalm | Learning Help Centre</a>
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link text-white px-2" href="#tour">Quick Tour</a></li>
-        <li class="nav-item"><a class="nav-link text-white px-2" href="#apps">Apps</a></li>
-        <li class="nav-item"><a class="nav-link text-white px-2" href="#user-guide">Interactive User Guide</a></li>
-        <li class="nav-item"><a class="nav-link text-white px-2" href="#videos">How to Videos</a></li>
-        <li class="nav-item"><a class="nav-link text-white px-2" href="#faqs">FAQs</a></li>
-        <!--li class="nav-item"><a class="nav-link text-white px-2" href="#updates">What’s New</a></li-->
-        <li class="nav-item"><a class="nav-link text-white px-2" href="#training-library">Training Library</a></li>
-        <li class="nav-item"><a class="nav-link text-white px-2" href="#customer-support">Support</a></li>
-        <li class="nav-item">
-            <a id="helpNav" class="nav-link text-white px-2 d-flex align-items-center" href="#">
-                <i class="bi bi-question-circle me-1"></i> Help
-            </a>
-        </li>
-    </ul>
-</div>
-    </div>
-</nav>
-
- <div id="popup-overlay" style="display: none;"></div>
-<div id="popup" style="display: none;">
-    <h5 class="text-center">Help Video</h5>
-    <div class="ratio ratio-16x9">
-        <video id="helpVideo" controls poster="helpvideo/poster.png">
-            <source src="helpvideo/bwhelp_ship.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <div class="d-flex justify-content-between align-items-center mt-3">
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="dontShowAgain">
-            <label class="form-check-label" for="dontShowAgain">Don't show again</label>
-        </div>
-        <button class="btn btn-secondary" id="closePopup">Close</button>
-    </div>
-</div>
-
- <section id="tour" class="section bg-light">
-    <div class="container text-center">
-      <h2>Welcome to the ShipPalm Quick Tour</h2>
-      <p>Explore the features of ShipPalm to make your journey easier and more enjoyable</p>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-         <div class="ratio ratio-16x9">
-           <video controls loop style="width:100%; height:auto;" title="ShipPalm Quick Tour">
-              <source src="quicktour/quicktour.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-           </video>
-         </div>
+  <!-- Collapsed Sidebar -->
+  <div class="sidebar">
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Home"><i class="bi bi-house"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Get Started"><i class="bi bi-rocket-takeoff"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Apps"><i class="bi bi-grid"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Case Studies"><i class="bi bi-file-earmark-lock"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Find your Subscription"><i class="bi bi-box-seam"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="User Guides"><i class="bi bi-book"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="How-To-Videos"><i class="bi bi-lightbulb"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="FAQs"><i class="bi bi-question-circle"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="What's New"><i class="bi bi-megaphone"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Training Library"><i class="bi bi-collection-play"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Recorded Webinars"><i class="bi bi-camera-video"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Support"><i class="bi bi-headset"></i></a>
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Feedback"><i class="bi bi-star"></i></a>      
+    </nav>
+  </div>
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- ZENORA Header -->
+    <div class="zenora-header">
+      <h1>Welcome to the ZN SMARTShip Learning Help Centre</h1>
+      <p class="subtitle">Your central knowledge hub for SMARTShip</p>
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" placeholder="Ask me anything..." />
+        <button><i class="bi bi-robot"></i></button>
+      </div>
+      <!-- ZENORA AI Intro -->
+      <div class="zenora-intro">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712189.png" alt="ZENORA Robot" />
+        <div class="zenora-intro-text">
+          <h5>ZENORA AI Assistant</h5>
+          <p>Hi, I’m ZENORA – your ZeroNorth Resource Assistant. I’m here to help you quickly find answers in product guides, training, FAQs, and how-to videos — everything you need to learn SMARTShip in seconds.</p>
         </div>
       </div>
     </div>
-  </section>
-
- <section id="apps" class="section bg-white">
-    <div class="container mt-4">
-        <h2 class="text-center mb-4">ShipPalm Apps</h2>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center" id="cards-container">
-            </div>
-    </div>
-
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="videoModalLabel">Video Player</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                   <div class="ratio ratio-16x9">
-                        <video id="videoPlayer" controls width="100%">
-                           <source id="videoSource" src="" type="video/mp4">
-                           Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            </div>
+    <h2 class="fw-bold mb-4 text-primary">Explore Learning Resources</h2>
+    <div class="row g-4">
+      <!-- Feature Cards -->
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-rocket-takeoff"></i>
+          <h5 class="card-title">Get Started</h5>
         </div>
-    </div>
- </section>
-  <section id="user-guide" class="section bg-light">
-  <div class="container text-center">
-    <h2>Interactive User Guide</h2>
-    <p>Learn how to navigate through ShipPalm with our interactive guide.</p>
-    <div class="row justify-content-center">
-      <div class="col-12 col-sm-8 col-md-6 col-lg-4 my-2">
-        <button class="btn btn-primary w-100" onclick="window.location.href='userguide/shipowner/userguideforshipowner.html'">
-          Open User Guide
-        </button>
       </div>
-    </div>
-  </div>
-</section>
-
-  <section id="videos" class="section bg-white">
-  <div class="container text-center">
-    <h2>How-to Videos</h2>
-    <p>Watch instructional videos on how to get the most out of ShipPalm</p>
-    <div class="row justify-content-center">
-      <div class="col-12 col-sm-8 col-md-6 col-lg-4 my-2">
-        <button class="btn btn-primary w-100" onclick="window.location.href='cbtvideos/owner_ship/cbtvideosforowneroffline.html'">
-          Watch & Learn: Ship
-        </button>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-grid"></i>
+          <h5 class="card-title">Apps</h5>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
- <section id="faqs" class="section bg-light">
-    <div class="container text-center">
-      <h2>FAQs</h2>
-      <p>Have questions? We have answers!</p>
-      <button class="btn btn-primary" onclick="window.location.href='faqs/faqs.html'">Open Faqs</button>
-    </div>
-  </section>
-
- <!--section id="updates" class="section bg-white">
-    <div class="container text-center">
-      <h2>What's New</h2>
-      <p>Discover newly launched features and enhancements designed to elevate your experience.</p>
-      <button class="btn btn-primary" onclick="window.location.href='whatsnew/Whatsnew.html'">Open Updates</button>
-    </div>
-  </section-->
-
-  <section id="training-library" class="section bg-white">
-    <div class="container text-center">
-      <h2>Training Library</h2>
-      <p>Access a comprehensive collection of courses to advance your learning journey..</p>
-      <div class="row justify-content-center">
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="card equal-height-card">
-            <div class="card-body">
-              <h5 class="card-title">ShipPalm Basics: Onboard Essentials</h5>
-              <p class="card-text">Discover the core features of ShipPalm and learn how to use them effectively on board..</p>
-              <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#hintModal">Start Now</a>
-            </div>
-          </div>
+       <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+         <i class="bi bi-file-earmark-lock"></i>
+          <h5 class="card-title">Case Studies</h5>
+        </div>
+      </div>
+         <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-box-seam"></i>
+          <h5 class="card-title">Find Your Subscription</h5>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-book"></i>
+          <h5 class="card-title">User Guides</h5>
+        </div>
+      </div>
+       <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-lightbulb"></i>
+          <h5 class="card-title">How-To Videos</h5>
+        </div>
+      </div>
+       <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-question-circle"></i>
+          <h5 class="card-title">FAQs</h5>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-megaphone"></i>
+          <h5 class="card-title">What's New</h5>
+        </div>
+      </div>
+     
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-collection-play"></i>
+          <h5 class="card-title">Training Library</h5>
+        </div>
+      </div>
+   
+     
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-camera-video"></i>
+          <h5 class="card-title">Recorded Webinars</h5>
+        </div>
+      </div>
+     
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-headset"></i>
+          <h5 class="card-title">Support</h5>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card p-4 text-center">
+          <i class="bi bi-star"></i>
+          <h5 class="card-title">Feedback</h5>
         </div>
       </div>
     </div>
- </section>
-
-<!-- Customer Support 24/7-->
-  <section id="customer-support" class="section bg-light" >
-   <div class="container text-center">
-      <h2>Meet Our Support Team</h2>
-      <p>Get the Help You Need, Anytime—Our Dedicated Team is Here for Your Questions and Concerns</p><br>
-  <div class="row">
-    <!-- Support Team Roles and Contact Details -->
-    <div class="col">
-      <div class="card shadow-sm equal-height-card">
-        <div class="card-body">
-          <h5 class="card-title"><i class="bi bi-person-fill"></i> Support Team Contacts</h5><br>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <strong>DMT Team</strong><br>
-              <a href="mailto:dmt.philippines@bw-group.com" class="text-decoration-none">dmt.philippines@bw-group.com</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
- 
   </div>
-</div>
-  </section>
-
-<div class="modal fade" id="hintModal" tabindex="-1" aria-labelledby="hintModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="hintModalLabel">Coming Soon...</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Contact the support team for further assistance.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <footer class="py-4" style="padding-bottom:20rem!important">
-  </footer>
-<div style="position: fixed; bottom: 20px; right: 20px; display: flex; align-items: center;">
-    <div style="margin-right: 70px; padding-bottom:20px;font-size: 14px; line-height: 1; font-weight: bold;">Ask Me!</div>
-
-  <button class="chatbot-btn" onclick="toggleChatbot()">💬</button>
-</div>
-
-<div class="chatbot-container" id="chatbot">
-  <div class="chatbot-header" style="display: flex; justify-content: space-between; align-items: center;">
-    <div class="search-header">
-      Search Articles <span class="search-icon">🔎</span>
-    </div>
-  </div>
-  <div class="chatbot-body">
-    <input type="text" id="searchInput" class="form-control" placeholder="Search..." onkeyup="searchArticles()">
-    <div id="results" class="mt-2"></div>
-  </div>
-</div>
-
-<div class="overlay" id="articleOverlay">
-  <div class="overlay-content">
-   <button type="button" class="close-btn" onclick="closeOverlay()" aria-label="Close">&times;</button>
-    <iframe id="articleFrame" title="Display container for help articles" class="article-iframe"></iframe>
-  </div>
-</div>
-
-
-
-<footer style="margin-top: 80px; padding: 20px 0; background-color: #ffffff; color: #03819B; text-align: center;">
-    © 2025 ShipPalm Learning Help Centre. All Rights Reserved.
-</footer>
- 
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#feedbackForm').on('submit', function(e) {
-        e.preventDefault();
-        
-        // Clear any previous message
-        $('#responseMessage').text('');
-
-        const formData = {
-          name: $('#name').val(),
-          email: $('#email').val(),
-          company: $('#company').val(),
-          designation: $('#designation').val(),
-          rating: $('input[name="rating"]:checked').val(),
-          comment: $('#comment').val()
-        };
-
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzTAWZPAvcCRu6lcxzE_2aJt6sxKCZFVQu1cUXSG3yysNtJ1xvLLCm2Vsnb9r9MVk4U/exec';  // Replace with your Google Apps Script URL
-        fetch(scriptURL, {
-          method: 'POST',
-          mode: 'no-cors',
-          body: new URLSearchParams(formData)
-        })
-        .then(response => {
-          $('#responseMessage').text('Feedback submitted successfully!').addClass('text-success');
-          $('#feedbackForm')[0].reset(); // Clear the form fields
-        })
-        .catch(error => {
-          console.error('Error:', error.message);
-          $('#responseMessage').text('There was an error submitting the feedback. Please try again.').addClass('text-danger');
-        });
-      });
-     // Get all nav items
-    const navItems = document.querySelectorAll('.nav-item');
-
-    // Add click event to each nav item
-    navItems.forEach(item => {
-      item.addEventListener('click', function() {
-        // Remove active class from all nav items
-        navItems.forEach(nav => nav.classList.remove('active'));
-
-        // Add active class to the clicked nav item
-        this.classList.add('active');
-      });
-    });
-    
-
-});
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el))
   </script>
-
- <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const popup = document.getElementById("popup");
-        const overlay = document.getElementById("popup-overlay");
-        const closePopupBtn = document.getElementById("closePopup"); // Renamed to avoid conflict
-        const helpNav = document.getElementById("helpNav");
-        const video = document.getElementById("helpVideo");  // Reference to the video element
-
-        function showPopup() {
-            popup.style.display = "block";
-            overlay.style.display = "block";
-        }
-
-        function hidePopup() {
-            popup.style.display = "none";
-            overlay.style.display = "none";
-            video.pause(); // Ensure video stops playing when popup hides
-            video.currentTime = 0; // Optional: Reset video to start
-        }
-
-        // Event listener for the close button
-        if (closePopupBtn) { // Check if element exists
-            closePopupBtn.addEventListener("click", function () {
-                console.log("Close button clicked");
-                // Removed reference to non-existent dontShowAgain checkbox in this specific script block
-                hidePopup();  // Hide the popup
-            });
-        }
-
-
-        // Event listener for the Help nav link
-        if (helpNav) { // Check if element exists
-            helpNav.addEventListener("click", function (event) {
-                event.preventDefault(); // Prevent default link behavior
-                showPopup(); // Show the popup
-                // Optional: Automatically play video when Help is clicked
-                // video.play();
-            });
-        }
-
-         // Optional: Close popup if user clicks on the overlay
-        if (overlay) { // Check if element exists
-            overlay.addEventListener("click", function() {
-                hidePopup();
-            });
-        }
-    });
-</script>
- <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const popup = document.getElementById("popup");
-        const overlay = document.getElementById("popup-overlay");
-        const closePopupButton = document.getElementById("closePopup"); // Distinct name
-        const dontShowAgain = document.getElementById("dontShowAgain");
-        const helpNav = document.getElementById("helpNav");
-
-        function showPopupOnLoad() { // Renamed for clarity
-            if (popup && overlay && !localStorage.getItem("popupHidden")) {
-                popup.style.display = "block";
-                overlay.style.display = "block";
-            }
-        }
-
-        function hidePopupAndStorePref() { // Renamed for clarity
-            if (popup && overlay) {
-                popup.style.display = "none";
-                overlay.style.display = "none";
-            }
-            if (dontShowAgain && dontShowAgain.checked) {
-                localStorage.setItem("popupHidden", "true"); // Prevent future popups
-            }
-        }
-        
-        function showHelpPopup() { // Renamed for clarity
-             if (popup && overlay) {
-                popup.style.display = "block";
-                overlay.style.display = "block";
-            }
-        }
-
-
-        showPopupOnLoad(); // Show popup on first visit unless "Don't show again" is checked
-
-        if (closePopupButton) {
-            closePopupButton.addEventListener("click", hidePopupAndStorePref);
-        }
-       
-        if (helpNav) {
-            helpNav.addEventListener("click", function (event) {
-                event.preventDefault(); // Prevent default navigation
-                showHelpPopup(); // Open the popup
-            });
-        }
-    });
-    </script>
-<script>
-    // CHATBOT SCRIPT - MOVED TO GLOBAL SCOPE
-const articles = [
-    { title: "Creating Manual Purchase Request Transaction", keywords: "Creating Manual Purchase Request Transaction", url: "askme/ship/purchase/1. Creating Manual Purchase Request Transaction.html" },
-{ title: "Creating Requisition worksheet-based purchase Request", keywords: "Creating Requisition worksheet-based purchase Request", url: "askme/ship/purchase/2. Creating Requisition worksheet-based purchase Request.html" },
-{ title: "Creating work order-based service request", keywords: "Creating work order-based service request", url: "askme/ship/purchase/3. Creating work order-based service request.html" },
-{ title: "Searching Retrieving a Purchase Order", keywords: "Searching Retrieving a Purchase Order", url: "askme/ship/purchase/4. Searching Retrieving a Purchase Order.html" },
-{ title: "Force Closing a Purchase Order for a partially delivered purchase Request", keywords: "Force Closing a Purchase Order for a partially delivered purchase Request", url: "askme/ship/purchase/5. Force Closing a Purchase Order for a partially delivered purchase Request.html" },
-{ title: "Creating a Goods Receipt Transaction", keywords: "Creating a Goods Receipt Transaction", url: "askme/ship/purchase/6. Creating a Goods Receipt Transaction.html" },
-{ title: "Printing GRN labels", keywords: "Printing GRN labels", url: "askme/ship/purchase/7. Printing GRN labels.html" },
-{ title: "Updating Inventory for local purchase items", keywords: "Updating Inventory for local purchase items", url: "askme/ship/purchase/8. Updating Inventory for local purchase items.html" },
-{ title: "Stock Adjustment Transaction", keywords: "Stock Adjustment Transaction", url: "askme/ship/purchase/9. Stock Adjustment Transaction.html" },
-{ title: "Purchase Requisition Statuses", keywords: "Purchase Requisition Statuses", url: "askme/ship/purchase/10. Purchase Requisition Statuses.html" },
-{ title: "Purchase Requisition cancellation", keywords: "Purchase Requisition cancellation", url: "askme/ship/purchase/11. Purchase Requisition cancellation.html" },
-{ title: "Purchase Requisition Approval", keywords: "Purchase Requisition Approval", url: "askme/ship/purchase/12. Purchase Requisition Approval.html" },
-{ title: "Accessing Purchase Quotes from Cue Card", keywords: "Accessing Purchase Quotes from Cue Card", url: "askme/ship/purchase/13.Accessing Purchase Quotes from Cue Card.html" },
-{ title: "Undo GRN", keywords: "Undo GRN", url: "askme/ship/purchase/14. Undo GRN.html" },
-{ title: "Reporting Periodic work order-Calender based", keywords: "Reporting Periodic work order-Calender based", url: "askme/ship/pms/1. Reporting Periodic work order-Calender based.html" },
-{ title: "Reporting Periodic work order-Counter based", keywords: "Reporting Periodic work order-Counter based", url: "askme/ship/pms/2. Reporting Periodic work order-Counter based.html" },
-{ title: "Reporting of TMDS work orders", keywords: "Reporting of TMDS work orders", url: "askme/ship/pms/3. Reporting of TMDS work orders.html" },
-{ title: "Reporting of Defect work orders", keywords: "Reporting of Defect work orders", url: "askme/ship/pms/4. Reporting of Defect work orders.html" },
-{ title: "Creating of Non Periodic Work Orders", keywords: "Creating of Non Periodic Work Orders", url: "askme/ship/pms/5. Creating of Non Periodic Work Orders.html" },
-{ title: "Reporting of Non-Periodic work Orders", keywords: "Reporting of Non-Periodic work Orders", url: "askme/ship/pms/6. Reporting of Non-Periodic work Orders.html" },
-{ title: "How to Request Deferment for Work Orders", keywords: "How to Request Deferment for Work Orders", url: "askme/ship/pms/7. How to Request Deferment for Work Orders.html" },
-{ title: "How to Close Periodic Work Orders", keywords: "How to Close Periodic Work Orders", url: "askme/ship/pms/8. How to Close Periodic Work Orders.html" },
-{ title: "How to Close Non-Periodic work Orders - Copy", keywords: "How to Close Non-Periodic work Orders", url: "askme/ship/pms/9. How to Close Non-Periodic work Orders - Copy.html" },
-{ title: "Activation of pending jobs at ship", keywords: "Activation of pending jobs at ship", url: "askme/ship/pms/10. Activation of pending jobs at ship.html" },
-{ title: "How to Create and Submit Non-Conformities Report", keywords: "How to Create and Submit Non-Conformities Report", url: "askme/ship/hseq/1. How to Create and Submit Non-Conformities Report.html" },
-{ title: "Accident Report", keywords: "Accident Report", url: "askme/ship/hseq/2. Accident Report.html" },
-{ title: "How to Create and submit Best Practice Report", keywords: "How to Create and submit Best Practice Report", url: "askme/ship/hseq/3. How to Create and submit Best Practice Report.html" },
-{ title: "How to Create and submit Suggestion for Improvement Report (SFI)", keywords: "How to Create and submit Suggestion for Improvement Report (SFI)", url: "askme/ship/hseq/4. How to Create and submit Suggestion for Improvement Report (SFI).html" },
-{ title: "How to Create and Submit Near Miss Report", keywords: "How to Create and Submit Near Miss Report", url: "askme/ship/hseq/5. How to Create and Submit Near Miss Report.html" },
-{ title: "Zero Harm Safety Observation Report", keywords: "Zero Harm Safety Observation Report", url: "askme/ship/hseq/6. Zero Harm Safety Observation Report.html" },
-{ title: "How to create Risk Assessment", keywords: "How to create Risk Assessment", url: "askme/ship/hseq/7. How to create Risk Assessment.html" },
-{ title: "Permit to work", keywords: "Permit to work", url: "askme/ship/hseq/8. Permit to work.html" },
-{ title: "How to Create an Internal Inspection Report", keywords: "How to Create an Internal Inspection Report", url: "askme/ship/hseq/9. How to Create an Internal Inspection Report.html" },
-{ title: "How to Create an External Inspection Report", keywords: "How to Create an External Inspection Report", url: "askme/ship/hseq/10. How to Create an External Inspection Report.html" },
-{ title: "How to Create an Internal Inspection Audit", keywords: "How to Create an Internal Inspection Audit", url: "askme/ship/hseq/11. How to Create an Internal Inspection Audit.html" },
-{ title: "How to Create an External Inspection Audit", keywords: "How to Create an External Inspection Audit", url: "askme/ship/hseq/12. How to Create an External Inspection Audit.html" },
-{ title: "Ackknowledge Broadcast", keywords: "Ackknowledge Broadcast", url: "askme/ship/hseq/13. Ackknowledge Broadcast.html" },
-{ title: "Handover Reports", keywords: "Handover Reports", url: "askme/ship/hseq/14. Handover Reports.html" },
-{ title: "Takeover Reports", keywords: "Takeover Reports", url: "askme/ship/hseq/15. Takeover Reports.html" },
-{ title: "How to Create Safety meeting Report", keywords: "How to Create Safety meeting Report", url: "askme/ship/hseq/16. How to Create Safety meeting Report.html" },
-{ title: "How to Create Vessel Certificate", keywords: "How to Create Vessel Certificate", url: "askme/ship/certificate/1. How to Create Vessel Certificate.html" },
-{ title: "How to Renew Vessel Certiicate", keywords: "How to Renew Vessel Certiicate", url: "askme/ship/certificate/2. How to Renew Vessel Certiicate.html" },
-{ title: "Attachments-Certificates", keywords: "Attachments-Certificates", url: "askme/ship/certificate/3. Attachments-Certificates.html" },
-{ title: "Surveys - Types", keywords: "Surveys - Types", url: "askme/ship/certificate/4. Surveys - Types.html" },
-{ title: "Due Date for each type of Surveys", keywords: "Due Date for each type of Surveys", url: "askme/ship/certificate/5. Due Date for each type of Surveys.html" },
-{ title: "Survey-Extension", keywords: "Survey-Extension", url: "askme/ship/certificate/6. Survey-Extension.html" },
-{ title: "Recording and closing of deviations for certificates", keywords: "Recording and closing of deviations for certificates", url: "askme/ship/certificate/7. Recording and closing of deviations for certificates.html" },
-{ title: "Request for Extension of Deviation", keywords: "Request for Extension of Deviation", url: "askme/ship/certificate/8. Request for Extension of Deviation.html" },
-{ title: "Creation of Occasional survey for certificates", keywords: "Creation of Occasional survey for certificates", url: "askme/ship/certificate/9. Creation of Occasional survey for certificates.html" },
-{ title: "Bulkdownload Certificates Survey", keywords: "Bulkdownload Certificates Survey", url: "askme/ship/certificate/10. Bulkdownload Certificates Survey.html" }
-]; //
-
-    function toggleChatbot() {
-        let chatbot = document.getElementById('chatbot'); //
-        chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex"; //
-    }
-
-    function searchArticles() {
-        let input = document.getElementById('searchInput').value.toLowerCase().trim(); //
-        let resultsDiv = document.getElementById('results'); //
-        resultsDiv.innerHTML = ""; //
-
-        if (input.length === 0) return;
-
-        let searchWords = input.split(/\s+/); //
-
-        let results = articles.filter(article => {
-            let keywords = article.keywords.toLowerCase(); //
-            if (keywords.includes(input)) return true; //
-            return searchWords.some(word => keywords.includes(word)); //
-        });
-
-        if (results.length === 0) {
-            resultsDiv.innerHTML = "<p class='text-danger text-center'>No matching articles found.</p>"; //
-            return;
-        }
-
-        results.forEach(article => {
-            let link = document.createElement("div"); //
-            link.innerHTML = article.title; //
-            link.className = "result"; //
-            link.onclick = () => openOverlay(article.url); // openOverlay will be global
-            resultsDiv.appendChild(link); //
-        });
-    }
-
- function openOverlay(url) {
-    const overlay = document.getElementById('articleOverlay');
-    const iframe = document.getElementById('articleFrame');
-
-    // Reset iframe height and set onload handler
-    iframe.style.height = '100%'; // Initial height before loading content
-
-    iframe.onload = function() {
-        try {
-            const contentDoc = iframe.contentWindow.document;
-            const body = contentDoc.body;
-            const html = contentDoc.documentElement;
-
-            // Calculate the full height of the content within the iframe
-            const height = Math.max(
-                body.scrollHeight, body.offsetHeight,
-                html.clientHeight, html.scrollHeight, html.offsetHeight
-            );
-            
-            // Set the iframe's height to its content's height
-            // Add a small buffer if needed (e.g., for unexpected margins/paddings)
-            iframe.style.height = (height + 5) + 'px'; // 5px buffer
-
-        } catch (e) {
-            console.warn("Error resizing iframe or accessing its content. This can happen with cross-origin iframes or if content is not fully loaded.", e);
-            // Fallback: iframe will remain at 100% height of overlay-content
-            // which might show its own scrollbar if content is taller.
-        }
-    };
-
-    // Set iframe src. This will trigger the onload event.
-    // Using about:blank first can help ensure onload fires consistently.
-    iframe.src = 'about:blank';
-    setTimeout(() => {
-        iframe.src = url;
-        if (overlay) overlay.style.display = "flex"; // Show the overlay
-    }, 0); // Small timeout
-}
-
-function closeOverlay() {
-    const overlay = document.getElementById('articleOverlay');
-    const iframe = document.getElementById('articleFrame');
-
-    if (overlay) overlay.style.display = "none";   // Hide the overlay
-    if (iframe) {
-        iframe.src = "";                  // Clear the iframe's source
-        iframe.style.height = "100%";     // Reset iframe height to its CSS default
-        iframe.onload = null;             // Remove the onload handler
-    }
-}
-
-    // END CHATBOT SCRIPT
-
-    // This DOMContentLoaded listener was duplicated. Keeping the version that handles the initial popup logic.
-    // The other event listeners for helpNav and closePopup for the initial video popup
-    // were already defined in separate script blocks.
-    // It is generally better to have one DOMContentLoaded or define functions globally and call them.
-    // For now, ensuring variable names for popup elements are distinct if scripts are kept separate.
-</script>
-    
-<script>
-    // --- Apps Section Script ---
-    const shippalmappdata = [
-        {
-            title: "Purchase",
-            desc: "Streamline your procurement processes and manage purchase orders efficiently.",
-            // Make sure this video file exists in the specified local path
-            video: "cbtvideos/owner_ship/videos/purchase/Ship/1 Overview Of Purchase Module.mp4", 
-            icon: "apps/shippalm_purchase.svg"
-        },
-        {
-            title: "PMS (Planned Maintenance System)",
-            desc: "Manage planned maintenance systems, track work orders, and maintain vessel machinery.",
-            // Make sure this video file exists in the specified local path
-            video: "cbtvideos/owner_ship/videos/pms/1 Overview of PMS.mp4",
-            icon: "apps/shippalm_pms.svg"
-        },
-        {
-            title: "HSEQ (Health, Safety, Environment, and Quality)",
-            desc: "Ensure health, safety, environment, and quality compliance with comprehensive tools.",
-            // Make sure this video file exists in the specified local path
-            video: "cbtvideos/owner_ship/videos/hseq/1 Overview of HSEQ.mp4",
-            icon: "apps/shippalm_qms.svg"
-        },
-        {
-            title: "Certificates",
-            desc: "Keep track of all vessel and crew certifications, ensuring validity and compliance.",
-            // Make sure this video file exists in the specified local path
-            video: "cbtvideos/owner_ship/videos/hseq/1 Overview of HSEQ.mp4",
-            icon: "apps/shippalm_certificate-management.svg"
-        }
-    ];
-
-    function loadAppCards() {
-        const container = document.getElementById("cards-container");
-        if (!container) return;
-        container.innerHTML = "";
-
-        shippalmappdata.forEach(item => {
-            let cardHTML = `
-                <div class="col">
-                    <div class="card app-card shadow-sm">
-                        <img src="${item.icon}" class="card-img-top" alt="${item.title} App Icon">
-                        <div class="card-body">
-                            <div>
-                                <h5 class="card-title">${item.title}</h5>
-                                <p class="card-text">${item.desc}</p>
-                            </div>
-                            <button class="btn btn-watch-custom mt-auto" onclick="openVideoModal('${item.video}', '${item.title}')">
-                                <i class="bi bi-play-circle-fill me-2"></i>Watch Video
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            container.innerHTML += cardHTML;
-        });
-    }
-
-    function openVideoModal(videoUrl, videoTitle) {
-        // This function now handles local video files.
-        // The modal should contain a <video> tag, not an <iframe>.
-        const videoPlayer = document.getElementById('videoPlayer'); // Assuming 'videoPlayer' is a <video> element
-        const videoModalLabel = document.getElementById('videoModalLabel');
-        
-        if (videoPlayer) {
-            // Set the source for the <video> element
-            const videoSource = document.getElementById('videoSource');
-            if (videoSource) {
-                 videoSource.setAttribute('src', videoUrl);
-                 videoPlayer.load(); // Load the new video source
-                 videoPlayer.play(); // Optional: autoplay the video
-            }
-        }
-        
-        if (videoModalLabel) {
-            videoModalLabel.textContent = videoTitle || "Video Player"; // Set modal title
-        }
-        
-        const videoModalElement = document.getElementById('videoModal');
-        if (videoModalElement) {
-            const videoBootstrapModal = new bootstrap.Modal(videoModalElement);
-            videoBootstrapModal.show();
-        }
-    }
-
-    function closeVideoModal() {
-        const videoPlayer = document.getElementById('videoPlayer'); // Assuming 'videoPlayer' is a <video> element
-        if (videoPlayer) {
-            videoPlayer.pause(); // Stop the video
-            const videoSource = document.getElementById('videoSource');
-            if(videoSource) {
-                videoSource.setAttribute('src', ''); // Clear the source
-            }
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', loadAppCards);
-
-    // Ensure your modal's close button or event calls closeVideoModal()
-    const videoModalElement = document.getElementById('videoModal');
-    if (videoModalElement) {
-        videoModalElement.addEventListener('hidden.bs.modal', function () {
-            closeVideoModal();
-        });
-    }
-    // --- End Apps Section Script ---
-</script>
-
 </body>
-
 </html>
-
-
-
-
-
-
