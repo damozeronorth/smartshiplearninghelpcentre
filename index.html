@@ -17,8 +17,8 @@
     @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
     body {
-      background-color: #F8F9FB;
-      font-family: "Rubik", sans-serif; /* CHANGED from Inter */
+      background-color: #f7f8fb; /* BRAND COLOR */
+      font-family: "Rubik", sans-serif;
     }
     /* Collapsed Sidebar */
     .sidebar {
@@ -48,12 +48,12 @@
     }
     .sidebar .nav-link i {
       font-size: 24px;
-      color: #0D6EFD;
+      color: #03819b; /* BRAND COLOR */
       margin-bottom: 4px;
     }
     .sidebar .nav-link:hover {
-      background-color: #E7F1FF;
-      color: #0D6EFD;
+      background-color: #eff2f7; /* BRAND COLOR */
+      color: #03819b; /* BRAND COLOR */
     }
     /* Tooltip for sidebar names */
     .sidebar .nav-link[data-bs-toggle="tooltip"] {
@@ -64,6 +64,21 @@
       margin-left: 90px;
       padding: 40px;
     }
+    /* --- BRAND COLOR OVERRIDES --- */
+    .main-content h2.text-primary {
+      color: #003143 !important; /* BRAND COLOR */
+    }
+    .btn-outline-primary {
+      color: #03819b;
+      border-color: #03819b;
+    }
+    .btn-outline-primary:hover {
+      color: #fff;
+      background-color: #03819b;
+      border-color: #03819b;
+    }
+    /* --- END BRAND OVERRIDES --- */
+
     /* ZENORA Header */
     .zenora-header {
       background-color: #fff;
@@ -71,22 +86,21 @@
       padding: 30px 25px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       margin-bottom: 40px;
-      position: relative; /* ADDED: To position buttons inside */
+      position: relative; 
     }
     .zenora-header h1 {
       font-size: 26px;
       font-weight: 700;
-      color: #0D47A1;
+      color: #003143; /* BRAND COLOR */
       margin-bottom: 8px;
-      margin-right: 210px; /* ADDED: To make space for buttons */
-      font-family: "Plau", sans-serif; /* ADDED: Title font */
+      margin-right: 210px; 
+      font-family: "Plau", sans-serif; 
     }
     .zenora-header p.subtitle {
       font-size: 16px;
       color: #555;
       margin-bottom: 20px;
     }
-    /* NEW: Header buttons */
     .header-buttons {
       position: absolute;
       top: 30px;
@@ -108,7 +122,7 @@
     .search-bar button {
       border-radius: 50%;
       border: none;
-      background-color: #0D6EFD;
+      background-color: #03819b; /* BRAND COLOR */
       color: #fff;
       width: 45px;
       height: 45px;
@@ -129,7 +143,7 @@
     .zenora-intro-text h5 {
       margin-bottom: 5px;
       font-weight: 600;
-      color: #0D47A1;
+      color: #003143; /* BRAND COLOR */
     }
     .zenora-intro-text p {
       margin: 0;
@@ -141,7 +155,6 @@
       border-radius: 16px;
       transition: all 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      /* Ensure card has a minimum height so it doesn't collapse */
       min-height: 130px; 
     }
     .card:hover {
@@ -150,7 +163,7 @@
     }
     .card i {
       font-size: 32px;
-      color: #0D6EFD;
+      color: #03819b; /* BRAND COLOR */
       margin-bottom: 10px;
     }
     .card-title {
@@ -161,42 +174,38 @@
 
     /* --- CSS FOR HOVER EFFECT --- */
     .card-with-hover-text {
-      position: relative; /* Needed to position hover content */
-      overflow: hidden; /* Clips the content */
+      position: relative; 
+      overflow: hidden; 
     }
     .card-normal-content {
-      /* This is the default state (icon + title) */
       transition: opacity 0.3s ease-in-out;
     }
     .card-hover-content {
-      /* This is the hidden state (text) */
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      display: flex; /* Used to center the text */
+      display: flex; 
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px; /* Same as p-4 roughly */
-      opacity: 0; /* Hidden by default */
+      padding: 20px; 
+      opacity: 0; 
       visibility: hidden;
       transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
       font-size: 14px;
       color: #333;
-      background-color: #fff; /* Match card background to cover content */
+      background-color: #fff; 
     }
     .card-hover-content p {
-      margin: 0; /* Remove default paragraph margin */
+      margin: 0; 
     }
     .card-with-hover-text:hover .card-normal-content {
-      /* On hover, hide the normal content */
       opacity: 0;
       visibility: hidden;
     }
     .card-with-hover-text:hover .card-hover-content {
-      /* On hover, show the hover content */
       opacity: 1;
       visibility: visible;
     }
@@ -227,7 +236,6 @@
       .zenora-intro img {
         margin-bottom: 10px;
       }
-      /* On mobile, disable the hover effect and just show the icon */
       .card-with-hover-text:hover .card-normal-content {
         opacity: 1;
         visibility: visible;
@@ -236,8 +244,6 @@
         opacity: 0;
         visibility: hidden;
       }
-
-      /* ADDED: Mobile responsive rules for buttons */
       .header-buttons {
         position: static;
         text-align: right;
@@ -264,7 +270,7 @@
       <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Training Library"><i class="bi bi-collection-play"></i></a>
       <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Recorded Webinars"><i class="bi bi-camera-video"></i></a>
       <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Support"><i class="bi bi-headset"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Feedback"><i class="bi bi-star"></i></a>      
+      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-params-placement="right" title="Feedback"><i class="bi bi-star"></i></a>      
     </nav>
   </div>
   <div class="main-content">
@@ -274,6 +280,7 @@
         <button class="btn btn-outline-primary btn-sm me-2">Updates</button>
         <button class="btn btn-outline-primary btn-sm">Help</button>
       </div>
+
       <h1>Welcome to the ZN SMARTShip Learning Help Centre</h1>
       <p class="subtitle">Your central knowledge hub for SMARTShip</p>
       <div class="search-bar">
