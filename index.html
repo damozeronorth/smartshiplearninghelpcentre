@@ -13,9 +13,12 @@
     rel="stylesheet"
   />
   <style>
+    /* ADDED: Import Rubik Font */
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
     body {
       background-color: #F8F9FB;
-      font-family: "Inter", sans-serif;
+      font-family: "Rubik", sans-serif; /* CHANGED from Inter */
     }
     /* Collapsed Sidebar */
     .sidebar {
@@ -68,17 +71,26 @@
       padding: 30px 25px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       margin-bottom: 40px;
+      position: relative; /* ADDED: To position buttons inside */
     }
     .zenora-header h1 {
       font-size: 26px;
       font-weight: 700;
       color: #0D47A1;
       margin-bottom: 8px;
+      margin-right: 210px; /* ADDED: To make space for buttons */
+      font-family: "Plau", sans-serif; /* ADDED: Title font */
     }
     .zenora-header p.subtitle {
       font-size: 16px;
       color: #555;
       margin-bottom: 20px;
+    }
+    /* NEW: Header buttons */
+    .header-buttons {
+      position: absolute;
+      top: 30px;
+      right: 25px;
     }
     .search-bar {
       display: flex;
@@ -224,6 +236,16 @@
         opacity: 0;
         visibility: hidden;
       }
+
+      /* ADDED: Mobile responsive rules for buttons */
+      .header-buttons {
+        position: static;
+        text-align: right;
+        margin-bottom: 15px;
+      }
+      .zenora-header h1 {
+        margin-right: 0;
+      }
     }
   </style>
 </head>
@@ -247,6 +269,11 @@
   </div>
   <div class="main-content">
     <div class="zenora-header">
+      
+      <div class="header-buttons">
+        <button class="btn btn-outline-primary btn-sm me-2">Updates</button>
+        <button class="btn btn-outline-primary btn-sm">Help</button>
+      </div>
       <h1>Welcome to the ZN SMARTShip Learning Help Centre</h1>
       <p class="subtitle">Your central knowledge hub for SMARTShip</p>
       <div class="search-bar">
