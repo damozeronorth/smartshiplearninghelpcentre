@@ -1,386 +1,1045 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZN ShipPalm Learning Help Centre</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-    rel="stylesheet"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZN Learning Help Centre Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <style>
-    /* ADDED: Import Rubik Font */
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
     body {
-      background-color: #f7f8fb; /* BRAND COLOR */
-      font-family: "Rubik", sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8fafc;
+      color: #003143; /* Changed global text color */
     }
-    /* Collapsed Sidebar */
-    .sidebar {
-      width: 74px; /* CHANGED: Adjusted width */
-      background-color: #003143; /* CHANGED: Darker BG */
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      padding: 20px 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    header {
+      background: white; 
+      color: #003143;    
+      padding: 4rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid #e2e8f0; 
     }
-    .sidebar .nav-link {
-      color: #CED4DA; 
-      font-weight: 500;
-      border-radius: 8px; /* CHANGED: Rounded block */
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+    }
+    .btn-custom-help {
+      background-color: #003143;
+      color: white;
+      border-color: #003143;
+    }
+    .btn-custom-help:hover {
+      background-color: #002533; /* Darker shade for hover */
+      color: white;
+      border-color: #002533;
+    }
+    /* === NEW CUSTOM BUTTON STYLE START === */
+    .btn-custom-main {
+      background-color: white;
+      color: #156e80;
+      border: 2px solid #156e80;
+      font-weight: 600;
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
       transition: all 0.3s ease;
-      font-size: 12px;
-      
-      /* CHANGED: Block styling */
-      width: 54px;
-      height: 50px;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: row;
-      border-left: 4px solid transparent; /* For active state spacing */
-      margin-bottom: 8px; /* Add spacing between blocks */
     }
-    .sidebar .nav-link i {
-      font-size: 22px; /* CHANGED: Adjusted icon size */
-      color: #CED4DA;
-      margin-bottom: 0; /* CHANGED: Removed margin */
+    .btn-custom-main:hover {
+      background-color: #8ab6bf;
+      color: white;
+      border-color: #8ab6bf;
     }
-    .sidebar .nav-link:hover {
-      background-color: #8098a1; /* CHANGED: Hover block color */
-      color: #fff;
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
     }
-    .sidebar .nav-link:hover i {
-      color: #fff;
-    }
-
-    /* ADDED: Active state styling */
-    .sidebar .nav-link.active {
-      background-color: #8098a1;
-      color: #fff;
-      border-left-color: #156e80; /* Active bar color */
-    }
-    .sidebar .nav-link.active i {
-      color: #fff;
-    }
-
-    /* Tooltip for sidebar names */
-    .sidebar .nav-link[data-bs-toggle="tooltip"] {
-      cursor: pointer;
-    }
-    /* Main content */
-    .main-content {
-      margin-left: 94px; /* CHANGED: Adjusted margin */
-      padding: 40px;
-    }
-    /* --- BRAND COLOR OVERRIDES --- */
-    .main-content h2.text-primary {
-      color: #003143 !important; /* BRAND COLOR */
-    }
-    
-    /* NEW BUTTON STYLE FOR HEADER BUTTONS */
-    .header-buttons .btn {
-      color: #156e80; /* Text color */
-      border: 1px solid #156e80; /* Border color */
-      background-color: transparent; /* Transparent background */
-      border-radius: 8px; /* Slightly rounded corners */
-      padding: 6px 12px; /* Adjust padding as needed */
-      font-size: 14px; /* Adjust font size as needed */
-    }
-    .header-buttons .btn:hover {
-      background-color: #e0f2f7; /* Light background on hover */
-      color: #156e80; /* Text color on hover */
-      border-color: #156e80; /* Border color on hover */
-    }
-
-    /* ZENORA Header */
-    .zenora-header {
-      background-color: #fff;
-      border-radius: 16px;
-      padding: 30px 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 40px;
-      position: relative; 
-    }
-    .zenora-header h1 {
-      font-size: 26px;
-      font-weight: 700;
-      color: #003143; /* BRAND COLOR */
-      margin-bottom: 8px;
-      margin-right: 210px; 
-      font-family: "Plau", sans-serif; 
-    }
-    .zenora-header p.subtitle {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-    .header-buttons {
-      position: absolute;
-      top: 30px;
-      right: 25px;
-    }
-    .search-bar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .search-bar input {
-      flex: 1;
-      border-radius: 50px;
-      border: 1px solid #CED4DA;
-      padding: 10px 15px;
-      font-size: 14px;
-    }
-    .search-bar button {
-      border-radius: 50%;
+    .card-custom {
       border: none;
-      background-color: #156e80; /* CHANGED: New brand color */
-      color: #fff;
-      width: 45px;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer; 
     }
-    .zenora-intro {
-      display: flex;
-      align-items: flex-start;
-      gap: 15px;
+    .card-custom:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-    .zenora-intro img {
+    .icon-circle {
       width: 60px;
       height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      background: #ccd6d9; /* Changed icon circle background color */
+      color: #003143; /* Changed icon color */
+      margin: auto;
     }
-    .zenora-intro-text h5 {
-      margin-bottom: 5px;
-      font-weight: 600;
-      color: #156e80; /* CHANGED: New brand color */
+    footer {
+      background: #f1f5f9;
+      padding: 1.5rem;
+      text-align: center;
+      color: #003143; /* Changed footer text color */
     }
-    .zenora-intro-text p {
-      margin: 0;
-      color: #555;
-      font-size: 14px;
+
+    /* --- ZENORA AI Section Styles --- */
+    .zenora-section {
+        max-width: 800px;
+        margin: 2rem auto 0;
     }
-    .card {
-      border: 1px solid #eee; /* ADDED: Light border to match image */
-      border-radius: 16px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      min-height: 130px; 
+    .search-container {
+        position: relative;
+        max-width: 600px;
+        cursor: not-allowed; /* Add not-allowed cursor */
     }
-    .card:hover {
+    /* New styles for "Coming Soon" hover effect */
+    .search-container::after {
+        content: 'Coming Soon';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(4, 30, 42, 0.85);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 25px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    .search-container:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+    .search-container .form-control {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: 50px;
+        border-radius: 25px;
+        border: 1px solid #ced4da;
+    }
+    .zenora-caption {
+        background-color: #f1f5f9;
+        border-radius: 12px;
+        padding: 20px;
+        max-width: 700px;
+    }
+    .zenora-caption p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #003143;
+    }
+
+    /* --- Search Results & Overlay Styles --- */
+     #searchResultsContainer {
+        position: relative; 
+        z-index: 1000;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    #results.card {
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .result {
+        display: block;
+        text-decoration: none;
+        background: #ffffff;
+        border: 1px solid #003143;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    .result:hover {
+        background: #003143;
+        color: #fff;
+        text-decoration: none;
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    .overlay-content {
+        background: white;
+        width: 80%;
+        height: 80%;
+        border-radius: 10px;
+        padding: 20px;
+        position: relative;
+        overflow: auto;
+    }
+    .close-btn {
+        position: absolute;
+        top: 30px;
+        right: 55px;
+        z-index: 10;
+        background-color: #003143 !important; /* Changed color */
+        color: white !important;
+        border: 1px solid #002533 !important; /* Changed color */
+        border-radius: 0 !important;
+        width: 32px !important;
+        height: 32px !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 20px !important; 
+        font-weight: 700 !important; 
+        line-height: 1 !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .close-btn:hover {
+        background-color: #002533 !important; /* Changed color */
+        border-color: #002533 !important; /* Changed color */
+        color: white !important;
+    }
+/* --- Help Popup Styles --- */
+     #popup,
+    #popup-overlay {
+      display: none;
+    }
+    #popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    #popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      width: 60%;
+      border-radius: 8px;
+    }
+    /* Custom styles for carousel indicators */
+    #comingNextCarousel .carousel-indicators {
+      position: static; 
+      margin-top: 1rem; 
+    }
+    #comingNextCarousel .carousel-indicators button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%; 
+      background-color: #aab2bd; 
+      border: none;
+      opacity: 1;
+    }
+    #comingNextCarousel .carousel-indicators .active {
+      background-color: #003143; 
+    }
+    /* Style for the video indicator */
+    .video-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #003143;
+      margin-top: 10px;
+    }
+    .video-indicator img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+    /* --- NEW: Academy Card Hover Styles --- */
+    .academy-card-link {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        height: 100%;
+    }
+    .academy-card-link .card {
+        height: 100%;
+    }
+    .academy-card-link::after {
+        content: 'Click to access this course';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 49, 67, 0.85);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-radius: 15px; /* Match .course-card radius */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    .academy-card-link:hover::after {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* --- NEW STYLES FROM learning_help_centre_copy.html --- */
+    .course-card {
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      height: 100%;
+    }
+    .course-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
     }
-    .card i {
-      font-size: 32px;
-      color: #003143; /* CHANGED: Dark brand color */
-      margin-bottom: 10px;
+    .course-img {
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      height: 180px;
+      object-fit: contain;
+      padding: 40px; /* Increased padding to make icon smaller */
+      background: #f1f5f9;
+      box-sizing: border-box;
     }
     .card-title {
-      font-size: 16px;
       font-weight: 600;
-      color: #156e80; /* Card title color */
+      font-size: 1.2rem;
     }
-    
-    @media (max-width: 768px) {
-      .sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: 10px 0;
-      }
-      .main-content {
-        margin-left: 0;
-        padding: 20px;
-      }
-      .sidebar .nav-link {
-        flex-direction: column;
-        font-size: 10px;
-        padding: 5px 0;
-        /* Reset block styling for mobile */
-        width: auto; 
-        height: auto;
-        border-left: none;
-        background-color: transparent;
-      }
-      .sidebar .nav-link.active {
-         border-left: none;
-         background-color: #343a40; /* Keep active bg on mobile */
-      }
-      .sidebar .nav-link i {
-         font-size: 24px; /* Reset icon size */
-         margin-bottom: 4px; /* Add margin back */
-      }
-      .zenora-intro {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .zenora-intro img {
-        margin-bottom: 10px;
-      }
-      
-      .header-buttons {
-        position: static;
-        text-align: right;
-        margin-bottom: 15px;
-      }
-      .zenora-header h1 {
-        margin-right: 0;
-      }
+    .badge-duration {
+      background: #003143;
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 10px;
     }
+
+    /* --- NEW: Reach Us Section Styles --- */
+.team-member {
+  display: flex;
+  align-items: center; /* This vertically aligns the image and the text block */
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.profile-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 2px;
+  margin-right: 12px; /* This creates space between the image and the text */
+}
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <nav class="nav flex-column">
-      <a class="nav-link active" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Home"><i class="bi bi-house"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Get Started"><i class="bi bi-rocket-takeoff"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Apps"><i class="bi bi-grid"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Case Studies"><i class="bi bi-file-earmark-lock"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Find your Subscription"><i class="bi bi-box-seam"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="User Guides"><i class="bi bi-book"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="How-To-Videos"><i class="bi bi-lightbulb"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="FAQs"><i class="bi bi-question-circle"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="What's New"><i class="bi bi-megaphone"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Training Library"><i class="bi bi-collection-play"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Recorded Webinars"><i class="bi bi-camera-video"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="Support"><i class="bi bi-headset"></i></a>
-      <a class="nav-link" href="#" data-bs-toggle="tooltip" data-bs-params-placement="right" title="Feedback"><i class="bi bi-star"></i></a>      
-    </nav>
-  </div>
-  <div class="main-content">
-    <div class="zenora-header">
-      
-      <div class="header-buttons">
-        <button class="btn btn-sm me-2">Updates</button>
-        <button class="btn btn-sm">Help</button>
-      </div>
+  <header class="position-relative">
+    <div class="position-absolute top-0 end-0 m-4 d-flex gap-2">
+      <a href="#" class="btn btn-custom-help"><i class="bi bi-bell"></i> Product Updates</a>
+      <a href="#" id="helpNav" class="btn btn-custom-help"><i class="bi bi-question-circle"></i> Help</a>
+    </div>
+    <h1>Welcome to the ZN Learning Help Centre Hub</h1>
+    <p>Your central knowledge and learning hub for ZN Products</p>
+    
+    <div class="zenora-section">
+        <div class="search-container mx-auto">
+            <input type="text" id="headerSearchInput" class="form-control" placeholder="Ask me anything..." onkeyup="searchArticles()" autocomplete="off" disabled>
+        </div>
+        <div class="d-flex align-items-center justify-content-center mt-4">
+            <img src="asset/whatsinside/ZENORA_SD.gif" alt="ZENORA AI Assistant" style="width: 120px; height: 120px; margin-right: 5px; flex-shrink: 0; object-fit: contain;">
+            <div class="zenora-caption">
+                <p class="text-start mb-0">
+                    Hi, I’m ZENORA – your ZeroNorth Resource Assistant. I’m here to help you quickly find answers in product guides, training, FAQs, and how-to videos — everything you need to learn ZeroNorth products in seconds. 
+                </p>
+            </div>
+        </div>
+    </div>
+  </header>
 
-      <h1>Welcome to the ZN SMARTShip Learning Help Centre</h1>
-      <p class="subtitle">Your central knowledge hub for SMARTShip</p>
-      <div class="search-bar">
-        <input type="text" placeholder="Ask me anything..." />
-        <button><i class="bi bi-robot"></i></button>
+  <div id="searchResultsContainer" style="display:none;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div id="results" class="card card-body"></div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div id="popup-overlay"></div>
+  <div id="popup">
+    <h5 class="text-center">Help Video</h5>
+    <div class="ratio ratio-16x9">
+      <iframe id="helpVideo" src="https://player.vimeo.com/video/1058568121" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="d-flex justify-content-between align-items- center mt-3">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dontShowAgain" />
+        <label class="form-check-label" for="dontShowAgain">Don't show again</label>
       </div>
-      <div class="zenora-intro">
-        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712189.png" alt="ZENORA Robot" />
-        <div class="zenora-intro-text">
-          <h5>ZENORA AI Assistant</h5>
-          <p>Hi, I’m ZENORA – your ZeroNorth Resource Assistant. I’m here to help you quickly find answers in product guides, training, FAQs, and how-to videos — everything you need to learn SMARTShip in seconds.</p>
+      <button class="btn btn-secondary" id="closePopup">Close</button>
+    </div>
+  </div>
+
+ <section class="container py-5">
+    <h2 class="section-title">ZeroNorth Products</h2>
+    <p class="text-center mb-4">Explore our products and learn how each one empowers your operations with efficiency and innovation.</p>
+    <div class="row g-4">
+      
+      <div class="col-md-3">
+        <div class="card card-custom text-center p-3 h-100" onclick="openVideoOverlay('Videos/Operator.mp4')">
+          <div class="icon-circle mb-3"><img src="asset/zeronorthproducts/operator.svg" alt="Operator Icon" width="32" height="32"></div>
+          <h5>Operator</h5>
+          <p>Simplifying daily vessel operations.</p>
+          <div class="video-indicator"><img src="asset/zeronorthproducts/playbutton.svg" alt="Play Icon"> Watch Video</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card card-custom text-center p-3 h-100" onclick="openVideoOverlay('Videos/Bunker.mp4')">
+          <div class="icon-circle mb-3"><img src="asset/zeronorthproducts/Bunker.svg" alt="Bunker Icon" width="32" height="32"></div>
+          <h5>Bunker</h5>
+          <p>Efficient fuel management.</p>
+          <div class="video-indicator"><img src="asset/zeronorthproducts/playbutton.svg" alt="Play Icon"> Watch Video</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card card-custom text-center p-3 h-100" onclick="openVideoOverlay('Videos/SMARTShip.mp4')">
+          <div class="icon-circle mb-3"><img src="asset/zeronorthproducts/SMARTShip.svg" alt="SMARTShip Icon" width="32" height="32"></div>
+          <h5>SMARTShip</h5>
+          <p>Real-time fleet analytics and insights.</p>
+          <div class="video-indicator"><img src="asset/zeronorthproducts/playbutton.svg" alt="Play Icon"> Watch Video</div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card card-custom text-center p-3 h-100" onclick="openVideoOverlay('Videos/ShipPalm.mp4')">
+          <div class="icon-circle mb-3"><img src="asset/zeronorthproducts/ShipPalm.svg" alt="ShipPalm Icon" width="32" height="32"></div>
+          <h5>ShipPalm</h5>
+          <p>All-in-one ship management system.</p>
+          <div class="video-indicator"><img src="asset/zeronorthproducts/playbutton.svg" alt="Play Icon"> Watch Video</div>
         </div>
       </div>
     </div>
-    <h2 class="fw-bold mb-4 text-primary">Explore Learning Resources</h2>
+  </section>
+
+
+ <section class="container py-5">
+    <h2 class="section-title">Explore your Learning Help Centres</h2>
+    <p class="text-center mb-4">Your one place to learn about our products — what they do, how they work, and how you can use them effectively.</p>
     <div class="row g-4">
-      
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-rocket-takeoff"></i>
-          <h5 class="card-title">Get Started</h5>
+      <div class="col-md-3">
+        <div class="card card-custom text-center p-4">
+         <div class="icon-circle mb-3"><img src="asset/explore/learninghelpcentre.svg" alt="Operator Icon" width="32" height="32"></div>
+         <h5>Operator</h5>
+          <a href="operator/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-custom-main">Go to Learning Help Centre</a>
         </div>
       </div>
+      <div class="col-md-3">
+        <div class="card card-custom text-center p-4">
+          <div class="icon-circle mb-3"><img src="asset/explore/learninghelpcentre.svg" alt="Bunker Icon" width="32" height="32"></div>
+          <h5>Bunker</h5>
+          <a href="bunker/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-custom-main">Go to Learning Help Centre</a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card card-custom text-center p-4">
+          <div class="icon-circle mb-3"><img src="asset/explore/learninghelpcentre.svg" alt="SMARTShip Icon" width="32" height="32"></div>
+          <h5>SMARTShip</h5>
+          <a href="smartship/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-custom-main">Go to Learning Help Centre</a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card card-custom text-center p-4">
+          <div class="icon-circle mb-3"><img src="asset/explore/learninghelpcentre.svg" alt="ShipPalm Icon" width="32" height="32"></div>
+          <h5>ShipPalm</h5>
+          <a href="ShipPalm_Owner_Shore/index.html" target="_blank" rel="noopener noreferrer" class="btn btn-custom-main">Go to Learning Help Centre</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-          <i class="bi bi-grid"></i>
-          <h5 class="card-title">Apps</h5>
-        </div>
-      </div>
 
-       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-           <i class="bi bi-file-earmark-lock"></i>
-            <h5 class="card-title">Case Studies</h5>
+  <section class="container py-5">
+    <h2 class="section-title">What’s Inside in Learning Help Centre</h2>
+     <p class="text-center mb-4">Everything you need to explore, learn, and succeed—right here. Discover every feature designed to help you learn smarter</p>
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Get Started.svg" alt="Get Started Icon" width="32" height="32">
+          </div>
+          <h6>Get Started</h6>
+          <p class="small">Take a quick tour video to get familiar with the products right away.</p>
         </div>
       </div>
-
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-            <i class="bi bi-box-seam"></i>
-            <h5 class="card-title">Find Your Subscription</h5>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Explore ShipPalm.svg" alt="Explore ShipPalm Icon" width="32" height="32">
+          </div>
+          <h6>Explore Product Apps</h6>
+          <p class="small">Discover all available apps and what each one can do for you.</p>
         </div>
       </div>
-
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-            <i class="bi bi-book"></i>
-            <h5 class="card-title">User Guides</h5>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Use cases.svg" alt="Usecases Icon" width="32" height="32">
+          </div>
+          <h6>Usecases</h6>
+          <p class="small">See real-world examples of how others solve problems using the product.</p>
         </div>
       </div>
-
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-            <i class="bi bi-lightbulb"></i>
-            <h5 class="card-title">How-To Videos</h5>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/virtual walkthrough.svg" alt="Virtual Walkthrough Icon" width="32" height="32">
+          </div>
+          <h6>Virtual Walkthrough</h6>
+          <p class="small">Experience guided tours that show how features work in action.</p>
         </div>
       </div>
-
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-            <i class="bi bi-question-circle"></i>
-            <h5 class="card-title">FAQs</h5>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/subscription.svg" alt="Subscription Icon" width="32" height="32">
+          </div>
+          <h6>Subscription</h6>
+          <p class="small">Understand your plan details and unlock the value of your package.</p>
         </div>
       </div>
-
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-            <i class="bi bi-megaphone"></i>
-            <h5 class="card-title">What's New</h5>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Step-by-Step-Guide.svg" alt="Step-by-Step Guide Icon" width="32" height="32">
+          </div>
+          <h6>Step-by-Step Guide</h6>
+          <p class="small">Follow clear, practical instructions to complete tasks easily.</p>
         </div>
       </div>
-     
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-            <i class="bi bi-collection-play"></i>
-            <h5 class="card-title">Training Library</h5>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Watch & Learn.svg" alt="Watch & Learn Icon" width="32" height="32">
+          </div>
+          <h6>Watch & Learn</h6>
+          <p class="small">Learn faster through short, engaging video tutorials.</p>
+        </div>
+      </div>
+         <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Need to Know.svg" alt="Need to Know Icon" width="32" height="32">
+          </div>
+          <h6>Need to Know</h6>
+          <p class="small">Find answers to common questions and important best practices.</p>
         </div>
       </div>
     
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-            <i class="bi bi-camera-video"></i>
-            <h5 class="card-title">Recorded Webinars</h5>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Latest Updates.svg" alt="Latest Updates Icon" width="32" height="32">
+          </div>
+          <h6>Latest Updates</h6>
+          <p class="small">Keep track of new features, improvements, and announcements.</p>
+        </div>
+      </div>
+  <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/On-Demand-courses.svg" alt="On-Demand courses Icon" width="32" height="32">
+          </div>
+          <h6>On-Demand courses</h6>
+          <p class="small">Upskill anytime with structured courses designed for your role.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/recorded webinar.svg" alt="Recorded Webinars Icon" width="32" height="32">
+          </div>
+          <h6>Recorded Webinars</h6>
+          <p class="small">Revisit expert sessions and training at your own pace.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Support.svg" alt="Support Icon" width="32" height="32">
+          </div>
+          <h6>Support</h6>
+          <p class="small">Reach our support team whenever you need assistance.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Feedback.svg" alt="Feedback Icon" width="32" height="32">
+          </div>
+          <h6>Feedback</h6>
+          <p class="small">Share your thoughts to improve your learning experience.</p>
+        </div>
+      </div>
+
+    
+      <div class="col-6 col-md-3">
+        <div class="card card-custom text-center p-3 h-100">
+          <div class="icon-circle mb-2">
+            <img src="asset/whatsinside/Get Instant Help.svg" alt="Get Instant Help Icon" width="32" height="32">
+          </div>
+          <h6>Get Instant Help</h6>
+          <p class="small">Find quick answers to urgent questions when you need them most.</p>
         </div>
       </div>
      
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-            <i class="bi bi-headset"></i>
-            <h5 class="card-title">Support</h5>
+  
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <h2 class="section-title">What’s Coming Next</h2>
+ <p class="text-center mb-4">The Learning Help Centre keeps growing—discover what’s next, before anyone else.</p>
+    <div id="comingNextCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        
+        <div class="carousel-item active">
+          <div class="p-4 text-center">
+            <h4 class="mb-4" style="color: #003143; font-weight: 400;">Operator Learning Help Centre Updates</h4>
+            <div class="d-flex justify-content-center flex-wrap gap-4">
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>AI Voyage Optimization</h5>
+                <p>New algorithms for route and speed optimization.</p>
+              </div>
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Real-time Weather Routing</h5>
+                <p>Advanced weather data provider integration.</p>
+              </div>
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Automated Noon Reporting</h5>
+                <p>Streamline daily reporting with new automation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="p-4 text-center">
+            <h4 class="mb-4" style="color: #003143; font-weight: 400;">Bunker Learning Help Centre Updates</h4>
+            <div class="d-flex justify-content-center flex-wrap gap-4">
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Smart Bunker Procurement</h5>
+                <p>AI-powered recommendations for fuel purchasing.</p>
+              </div>
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Fuel Quality Analysis</h5>
+                <p>New module to track and analyze fuel quality data.</p>
+              </div>
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Price Fluctuation Alerts</h5>
+                <p>Real-time alerts on global fuel price changes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="p-4 text-center">
+            <h4 class="mb-4" style="color: #003143; font-weight: 400;">SMARTShip Learning Help Centre Updates</h4>
+            <div class="d-flex justify-content-center flex-wrap gap-4">
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Advanced Anomaly Detection</h5>
+                <p>AI to detect deviations in vessel performance.</p>
+              </div>
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Custom Fleet Dashboards</h5>
+                <p>Build and customize your own fleet dashboards.</p>
+              </div>
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>EU ETS & CII Suite</h5>
+                <p>A comprehensive suite for compliance management.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="p-4 text-center">
+            <h4 class="mb-4" style="color: #003143; font-weight: 400;">ShipPalm Learning Help Centre Updates</h4>
+            <div class="d-flex justify-content-center flex-wrap gap-4">
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Integrated Crew Payroll</h5>
+                <p>Fully integrated payroll system for crewing.</p>
+              </div>
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Mobile App for Seafarers</h5>
+                <p>A dedicated mobile app for on-the-go access.</p>
+              </div>
+              <div class="card card-custom p-3 text-center" style="width: 300px;">
+                <h5>Digital Logbooks</h5>
+                <p>Official transition to fully digital logbooks.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#comingNextCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Operator"></button>
+        <button type="button" data-bs-target="#comingNextCarousel" data-bs-slide-to="1" aria-label="Bunker"></button>
+        <button type="button" data-bs-target="#comingNextCarousel" data-bs-slide-to="2" aria-label="SMARTShip"></button>
+        <button type="button" data-bs-target="#comingNextCarousel" data-bs-slide-to="3" aria-label="ShipPalm"></button>
+      </div>
+    </div>
+  </section>
 
-      <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card p-4 text-center">
-            <i class="bi bi-star"></i>
-            <h5 class="card-title">Feedback</h5>
+  <section class="container py-5">
+    <h2 class="section-title">ZeroNorth Academy Certified Training Courses</h2>
+     <p class="text-center mb-4">Turn knowledge into achievement. Access our courses in the Learning Management System (LMS) and get certified to lead with confidence.</p>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4 mb-4">
+            <a href="https://zeronorth.talentlms.com/catalog?category=Bunker" target="_blank" rel="noopener noreferrer" class="academy-card-link">
+                <div class="card course-card">
+                    <img src="asset/zeronorthproducts/ShipPalm.svg" class="card-img-top course-img" alt="ShipPalm Essentials Icon">
+                    <div class="card-body">
+                        <h5 class="card-title">ShipPalm Essentials</h5>
+                        <span class="badge-duration">Duration: 2 hrs</span>
+                        <p class="card-text mt-2">Learn the basics of ShipPalm to get started quickly and confidently.</p>
+                        <ul class="small">
+                            <li>Understand core modules</li>
+                            <li>Navigate with ease</li>
+                            <li>Complete essential tasks</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://zeronorth.talentlms.com/plus/catalog/courses/158" target="_blank" rel="noopener noreferrer" class="academy-card-link">
+                <div class="card course-card">
+                    <img src="asset/zeronorthproducts/SMARTShip.svg" class="card-img-top course-img" alt="SMARTShip Essentials Icon">
+                    <div class="card-body">
+                        <h5 class="card-title">SMARTShip Essentials</h5>
+                        <span class="badge-duration">Duration: 3 hrs</span>
+                        <p class="card-text mt-2">Master SMARTShip features and workflows for efficient operations.</p>
+                        <ul class="small">
+                            <li>Explore SMARTShip apps</li>
+                            <li>Learn daily workflows</li>
+                            <li>Unlock key insights</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://zeronorth.talentlms.com/plus/catalog/courses/158" target="_blank" rel="noopener noreferrer" class="academy-card-link">
+                <div class="card course-card">
+                    <img src="asset/zeronorthproducts/Bunker.svg" class="card-img-top course-img" alt="Bunker Essentials Icon">
+                    <div class="card-body">
+                        <h5 class="card-title">Bunker Essentials</h5>
+                        <span class="badge-duration">Duration: 1.5 hrs</span>
+                        <p class="card-text mt-2">Gain knowledge of bunker operations, monitoring, and compliance.</p>
+                        <ul class="small">
+                            <li>Understand bunker workflows</li>
+                            <li>Ensure compliance</li>
+                            <li>Best practices for efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://zeronorth.talentlms.com/plus/catalog/courses/158" target="_blank" rel="noopener noreferrer" class="academy-card-link">
+                <div class="card course-card">
+                    <img src="asset/zeronorthproducts/operator.svg" class="card-img-top course-img" alt="Operator Essentials Icon">
+                    <div class="card-body">
+                        <h5 class="card-title">Operator Essentials</h5>
+                        <span class="badge-duration">Duration: 2.5 hrs</span>
+                        <p class="card-text mt-2">Develop skills to operate platforms effectively with confidence.</p>
+                        <ul class="small">
+                            <li>Platform navigation</li>
+                            <li>Daily operational workflows</li>
+                            <li>Problem-solving use cases</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://zeronorth.talentlms.com/plus/catalog/courses/158" target="_blank" rel="noopener noreferrer" class="academy-card-link">
+                <div class="card course-card">
+                    <img src="asset/whatsinside/Sales.svg" class="card-img-top course-img" alt="Product Sales Essentials Icon">
+                    <div class="card-body">
+                        <h5 class="card-title">Product Sales Essentials</h5>
+                        <span class="badge-duration">Duration: 2 hrs</span>
+                        <p class="card-text mt-2">Learn how to position, present, and sell ZeroNorth products effectively.</p>
+                        <ul class="small">
+                            <li>Understand product packages</li>
+                            <li>Sales strategies & use cases</li>
+                            <li>Engage customers with value</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+  </section>
+
+  <section class="container py-5">
+    <h2 class="section-title">Digital Learning Centre - Reach Us</h2>
+ <p class="text-center mb-4">We drive digital learning excellence through strategy, design, and innovation, empowering organizations with impactful learning solutions.</p>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card card-custom p-4 h-100" style="cursor: default;">
+          <div class="card-body">
+            <h5 class="card-title" style="font-weight: 600;"><i class="bi bi-building me-2"></i>About Us & Contact</h5>
+            <p class="card-text" style="text-align: justify;">
+              We are the Digital Learning Centre (DLC) — a team of innovators, storytellers, and creators transforming learning into engaging, impactful experiences. Guided by our Manager, who drives vision and strategy, our Instructional Designer crafts meaningful learning journeys, brought to life through interactive courses and guides by our eLearning Developer. Our creativity shines in motion, with our Senior Motion Graphics Designer delivering advanced animations and our Motion Graphics Designer producing visuals that inspire and captivate. Together, we unite strategy, design, technology, and creativity to deliver next-generation learning solutions that make a lasting impact.
+
+            </p>
+            <hr>
+            <h6><i class="bi bi-envelope-fill me-2"></i>Get in Touch</h6>
+            <form>
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Your Email" required>
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" rows="3" placeholder="Your Message"></textarea>
+              </div>
+              <button type="submit" class="btn btn-custom-help w-100">Send Message</button>
+            </form>
+          </div>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="card card-custom p-4 h-100" style="cursor: default;">
+          <div class="card-body">
+            <h5 class="card-title text-center" style="font-weight: 600;"><i class="bi bi-people-fill me-2"></i>Our Team</h5>
+            <div class="team-member">
+              <img src="asset/photos/Damo.jpg" alt="Manager" class="profile-img">
+              <div>
+                <strong>Damo, Manager, Digital Learning</strong><br>
+Drives the Digital Learning Centre’s vision and strategy, leading innovation and shaping the future of learning transformation.            </div>
+            </div>
+            <div class="team-member">
+              <img src="asset/photos/Meenakshi.jpg" alt="Instructional Designer" class="profile-img">
+              <div>
+                <strong>Meenakshi, Instructional Designer</strong><br>
+Designs impactful learning experiences through instructional design principles, developing scripts and storyboards that simplify complexity and inspire learner success.
+              </div>
+            </div>
+            <div class="team-member">
+              <img src="asset/photos/Dhanapriya.jpg" alt="eLearning Developer" class="profile-img">
+              <div>
+                <strong>Dhanapriya, eLearning Developer</strong><br>
+Builds interactive userguides, elearning courses, and videos that engage, educate, and empower users.              </div>
+            </div>
+            <div class="team-member">
+              <img src="asset/photos/Arul.jpg" alt="Senior Motion Graphics Designer" class="profile-img">
+              <div>
+                <strong>Arul, Senior Motion Graphics Designer</strong><br>
+Leads high-impact motion graphics projects, delivering advanced animation and storytelling, bringing learning to life through creativity.              </div>
+            </div>
+            <div class="team-member">
+              <img src="asset/photos/Parthiban.jpg" alt="Motion Graphics Designer" class="profile-img">
+              <div>
+                <strong>Parthiban, Motion Graphics Designer</strong><br>
+                Creates explainer videos, animations, and engaging visuals for learning.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <div class="overlay" id="articleOverlay">
+      <div class="overlay-content">
+       <button type="button" class="close-btn" onclick="closeOverlay()" aria-label="Close">×</button>
+       <iframe id="articleFrame" style="width:100%; height:100%; border: none; display: block; overflow: hidden;"></iframe>
+      </div>
+    </div>
+
+  <div class="overlay" id="videoOverlay">
+    <div class="overlay-content">
+      <button type="button" class="close-btn" onclick="closeVideoOverlay()" aria-label="Close">×</button>
+      <video id="videoPlayer" style="width: 100%; height: 100%; background-color: black;" controls autoplay>
+        <source src="" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
+  
+  <footer>
+    © 2025 Digital Learning Centre · All Rights Reserved
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // This script now only initializes the tooltips for the sidebar
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-    const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el))
+<script>
+    const articles = [
+      {
+          title: "Predesigned dashboards in Myoverviews",
+          keywords: "Predesigned dashboards in Myoverviews, my overviews, existing dashboards",
+          url: "AskMeTopics/predesigned_dashboards_myoverviews.html"
+      },
+      {
+          title: "Overview Creator",
+          keywords: "Overview Creator, create overview, my overviews tool",
+          url: "AskMeTopics/overview_creator.html"
+      },
+      // ... (rest of articles array is unchanged)
+    ];
+
+    function searchArticles() {
+        let input = document.getElementById('headerSearchInput').value.toLowerCase().trim();
+        let resultsContainer = document.getElementById('searchResultsContainer');
+        let resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = "";
+
+        if (input.length === 0) {
+            resultsContainer.style.display = 'none';
+            return;
+        }
+        
+        let searchWords = input.split(/\s+/).filter(word => word.length > 0); 
+        let foundResults = articles.filter(article => {
+            let keywords = article.keywords.toLowerCase();
+            if (keywords.includes(input)) return true;
+            return searchWords.every(word => keywords.includes(word));
+        });
+
+        if (foundResults.length === 0) {
+            resultsDiv.innerHTML = "<p class='text-secondary text-center p-2'>No matching articles found.</p>";
+            resultsContainer.style.display = 'block';
+        } else {
+            foundResults.forEach(article => {
+                let link = document.createElement("div");
+                link.innerHTML = article.title;
+                link.className = "result";
+                link.onclick = () => openArticleOverlay(article.url);
+                resultsDiv.appendChild(link);
+            });
+            resultsContainer.style.display = 'block';
+        }
+    }
+
+    // Article Overlay Functions (for chatbot)
+    function openArticleOverlay(url) {
+        const articleFrame = document.getElementById('articleFrame');
+        const articleOverlay = document.getElementById('articleOverlay');
+        if (articleFrame) articleFrame.src = url;
+        if (articleOverlay) articleOverlay.style.display = "flex";
+        document.getElementById('searchResultsContainer').style.display = 'none';
+        document.getElementById('headerSearchInput').value = '';
+    }
+
+    function closeOverlay() { 
+        const articleOverlay = document.getElementById('articleOverlay');
+        const articleFrame = document.getElementById('articleFrame');
+        if (articleOverlay) articleOverlay.style.display = "none";
+        if (articleFrame) articleFrame.src = "";
+    }
+
+    // Video Overlay Functions (for product cards)
+    function openVideoOverlay(videoUrl) {
+        const videoOverlay = document.getElementById('videoOverlay');
+        const videoPlayer = document.getElementById('videoPlayer');
+        if (videoPlayer && videoOverlay) {
+            videoPlayer.querySelector('source').src = videoUrl;
+            videoPlayer.load();
+            videoPlayer.play();
+            videoOverlay.style.display = "flex";
+        }
+    }
+
+    function closeVideoOverlay() {
+        const videoOverlay = document.getElementById('videoOverlay');
+        const videoPlayer = document.getElementById('videoPlayer');
+        if (videoPlayer && videoOverlay) {
+            videoPlayer.pause();
+            videoPlayer.querySelector('source').src = "";
+            videoOverlay.style.display = "none";
+        }
+    }
+
+    // Help Popup Functions
+    const popup = document.getElementById("popup");
+    const overlay = document.getElementById("popup-overlay");
+    const closePopup = document.getElementById("closePopup");
+    const dontShowAgain = document.getElementById("dontShowAgain");
+    const helpNav = document.getElementById("helpNav");
+
+    function showHelpPopup() { 
+        if (popup && overlay) {
+            popup.style.display = "block";
+            overlay.style.display = "block";
+        }
+    }
+    function hideHelpPopup() { 
+        if (popup && overlay) {
+            popup.style.display = "none";
+            overlay.style.display = "none";
+        }
+    }
+    if (popup && !localStorage.getItem("popupHidden")) {
+        showHelpPopup();
+    }
+    if (closePopup) {
+        closePopup.addEventListener("click", function () {
+            if (dontShowAgain && dontShowAgain.checked) {
+                localStorage.setItem("popupHidden", "true");
+            }
+            hideHelpPopup();
+        });
+    }
+    
+    if (helpNav) {
+        helpNav.addEventListener("click", function (event) {
+            event.preventDefault(); 
+            showHelpPopup();
+        });
+    }
+
+    // --- HIDE SEARCH RESULTS ON OUTSIDE CLICK ---
+    document.addEventListener('click', function(event) {
+        const resultsContainer = document.getElementById('searchResultsContainer');
+        const searchInput = document.getElementById('headerSearchInput');
+
+        if (resultsContainer && resultsContainer.style.display === 'block') {
+            if (!resultsContainer.contains(event.target) && event.target !== searchInput) {
+                resultsContainer.style.display = 'none';
+            }
+        }
+    });
   </script>
 </body>
 </html>
